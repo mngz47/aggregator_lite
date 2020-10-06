@@ -1,0 +1,61 @@
+<html>
+<head>
+<title>Marketing 101</title>
+</head>
+<body>
+<script src=rr/api.js ></script>
+<h3>Blog Website</h3>
+<span>URL</span>
+<input type=text name=url id=url />
+<a href=# onclick=start(); >Start Marketing</a>
+<script>
+
+var external_urls = [];
+
+var layer_urls = [];
+
+function layerURL(text){
+var links = text.split('<a ');
+for(var a=0;a<links.length;a++){
+
+var hh = links[a].substring(indexOf('href="'),indexOf('" '));
+if(hh.contains(e('url').value)){
+layer_urls[layer_urls.length] = hh;
+}else{
+external_urls[external_urls.length] = hh;
+}
+}
+}
+
+function getUrlText(url){
+var text; 
+var res = sendreq(url);
+res.onload = function(){
+text = res.responseText;
+};
+return text;
+}
+
+function pushContent(text){
+
+}
+
+function start(){
+
+layerURL(getUrlText(e('url').value));
+
+pushContent(getUrlText(e('url').value));
+
+for(var a=0;a<layer_urls.length;a++){
+
+   layerURL(getUrlText(layer_urls[a]));
+   
+   pushContent(getUrlText(layer_urls[a]));
+   
+}
+
+}
+
+</script>
+</body>
+</html>
