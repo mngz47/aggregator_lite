@@ -28,10 +28,13 @@ for(var a=0;a<links.length;a++){
 var narrow = links[a].substring(0,400);
 
 var hh = narrow.substring(narrow.indexOf('href="')+6,narrow.indexOf('" '));
-
+ e('log').innerHTML += '('+hh+') link<br>';
+   
 if(hh.includes(e('url').value)){
 layer_urls[layer_urls.length] = hh;
+  
 }else{
+  
 external_urls[external_urls.length] = hh;
 }
 }
