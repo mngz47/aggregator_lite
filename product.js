@@ -50,7 +50,7 @@
    cc = '';//comments
    }
    
-   function fetch_field(text,elements,names){
+   function fetch_field(text,elements,names,size){
 	   var vv = '';
 	   for(var b=0;b<elements.length && !vv;b++){
 		  
@@ -68,10 +68,14 @@
 			 
 			 if(narrow.indexOf(names[c])!=-1){
             
-            vv = narrow.substring (narrow.indexOf('>')+1 , narrow.indexOf('<'));
+         var ss = narrow.substring (narrow.indexOf('>')+1 , narrow.indexOf('<'));
           
+				 if(ss.length>size){
+				    
+		  vv = ss;		 
 		e('log').innerHTML += '<textarea>'+vv+'</textarea> '+names[c]+'<br>';	
 			 break;
+				 }
         		 }
 		 } 
       }
@@ -109,10 +113,10 @@
       
       e('log').innerHTML += '('+url+') Fetch Product<br>';
 
-     hh = fetch_field(text,['<h','<span'],['name','heading','title']);
-     pp = fetch_field(text,['<span','<div'],['price']);
-     bb = fetch_field(text,['<span','<div'],['brand']);
-     ca = fetch_field(text,['<span','<div'],['category']);
+     hh = fetch_field(text,['<h','<span'],['name','heading','title'],20);
+     pp = fetch_field(text,['<span','<div'],['price'],3);
+     bb = fetch_field(text,['<span','<div'],['brand'],4);
+     ca = fetch_field(text,['<span','<div'],['category'],6);
 	   
 //-----------------------------------
 	   
