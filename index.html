@@ -12,8 +12,8 @@
 <a href=# onclick="stop=true;" >STOP</a>
  <br><br>
 <span>INDEX</span>
-<input type=text name=index id=index />
-<a href=# onclick="ind=e('index').value;" >SET_INDEX</a>
+<input type=number name=index id=index />
+<a href=# onclick="ind=parseInt(e('index').value);" >SET_INDEX</a>
 <br><br>
 <strong>LOG</strong>
 <div style="border:2px solid red;padding:10px;"  id=log ></div>
