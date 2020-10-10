@@ -60,7 +60,7 @@
 	 for(var a=0;a<headings.length;a++){
 		
 		
-		var narrow = (headings[a].length>50?headings[a].substring(0,50):headings[a]);
+		var narrow = (headings[a].length>300?headings[a].substring(0,300):headings[a]);
 		 
 		 for(var c=0;c<names;c++){
 			 
