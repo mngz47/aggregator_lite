@@ -61,7 +61,7 @@
 		var narrow = (headings[a].length>100?headings[a].substring(0,100):headings[a]);
 		
 		 for(var c=0;c<names;c++){
-			 if(narrow.includes(names[c])){
+			 if(narrow.indexOf(names[c])!==-1){
             
             vv = narrow.substring (narrow.indexOf('>')+1 , narrow.indexOf('<'));
             break;
@@ -86,7 +86,7 @@
 		var narrow = (headings[a].length>1000?headings[a].substring(0,1000):headings[a]);
 		
 		 for(var c=0;c<names;c++){
-			 if(narrow.includes(names[c])){
+			 if(narrow.indexOf(names[c])!==-1){
             
             vv += narrow.substring (narrow.indexOf('>')+1 , narrow.indexOf('<'))+';;';
        			 
