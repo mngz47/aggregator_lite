@@ -56,15 +56,24 @@
 		  
 		   var headings = text.split[elements[b]];
       if(headings){
+	      
+	       e('log').innerHTML += '('+headings.length+') '+elements[b]+'<br>';
+
 	 for(var a=0;a<headings.length;a++){
-		 
-		var narrow = (headings[a].length>500?headings[a].substring(0,500):headings[a]);
 		
+		
+		var narrow = (headings[a].length>200?headings[a].substring(0,200):headings[a]);
+		
+		  e('log').innerHTML += '('+narrow+') '+elements[b]+'<br>';
+
+		 
 		 for(var c=0;c<names;c++){
+			 
 			 if(narrow.indexOf(names[c])!=-1){
             
             vv = narrow.substring (narrow.indexOf('>')+1 , narrow.indexOf('<'));
-            break;
+            break;break;
+				 
 				 
         		 }
 		 } 
