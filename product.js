@@ -60,17 +60,18 @@
 	 for(var a=0;a<headings.length;a++){
 		
 		
-		var narrow = (headings[a].length>300?headings[a].substring(0,300):headings[a]);
+		var narrow = (headings[a].length>100?headings[a].substring(0,100):headings[a]);
 		 
-		 for(var c=0;c<names;c++){
+		 for(var c=0;c<names.length;c++){
 			 
-			  e('log').innerHTML += '<textarea>'+narrow+'</textarea> '+names[c]+'<br>';	
+		//	  e('log').innerHTML += '<textarea>'+narrow+'</textarea> '+names[c]+'<br>';	
 			 
 			 if(narrow.indexOf(names[c])!=-1){
             
             vv = narrow.substring (narrow.indexOf('>')+1 , narrow.indexOf('<'));
-            	 
-		 
+            	  
+		e('log').innerHTML += '<textarea>'+vv+'</textarea> '+names[c]+'<br>';	
+			 break;break;
         		 }
 		 } 
       }
@@ -90,17 +91,17 @@
 		 
 		var narrow = (headings[a].length>1000?headings[a].substring(0,1000):headings[a]);
 		
-		 for(var c=0;c<names;c++){
+		 for(var c=0;c<names.length;c++){
 			 if(narrow.indexOf(names[c])!=-1){
             
             vv += narrow.substring (narrow.indexOf('>')+1 , narrow.indexOf('<'))+';;';
-       			 
-        		 }
+        		
+			 }
 		 } 
       }
 	}   
-		   
 	   }
+	 
 	   return vv;
    }
 
