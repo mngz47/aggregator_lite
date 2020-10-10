@@ -47,7 +47,7 @@ external_urls[external_urls.length] = hh;
  var stop = false;
  var index = 0;
  
-function getUrlText(url){
+async function getUrlText(url){
 var text; 
 
 var f = new FormData();
@@ -58,8 +58,8 @@ res.onload = function(){
 text = res.responseText;
  
  layerURL(text);
- 
-if(!stop && index<layer_urls.length){
+ // && index<layer_urls.length
+if(!stop){
  
  getUrlText(layer_urls[index]);
  fetch_product(layer_urls[index],text);
