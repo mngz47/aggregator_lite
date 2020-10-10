@@ -62,10 +62,7 @@
 	 for(var a=0;a<headings.length;a++){
 		
 		
-		var narrow = (headings[a].length>200?headings[a].substring(0,200):headings[a]);
-		
-		  e('log').innerHTML += '('+narrow+') '+elements[b]+'<br>';
-
+		var narrow = (headings[a].length>100?headings[a].substring(0,100):headings[a]);
 		 
 		 for(var c=0;c<names;c++){
 			 
