@@ -54,7 +54,7 @@ var res = sendform_2('feature/aggregation/lite/gettext.php',f);
 res.onload = function(){
 var text = res.responseText;
   
- layerURL(url);
+ layerURL(text);
  
  e('log').innerHTML += '('+ind+') index<br>';
  
