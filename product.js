@@ -140,5 +140,7 @@
 	  showProduct();
 	  saveProduct(url);
 	  clearProduct();
+	  }else{
+		  e('log').innerHTML += '('+hh +' | '+ pp +' | '+ bb +' | '+ ca +' | '+ ii.length +' | '+ dd +' | '+ cc+') Error Fetch Product<br>';  
 	  }
    }
