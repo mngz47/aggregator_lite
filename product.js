@@ -54,7 +54,7 @@
 	   var vv = '';
 	   for(var b=0;b<elements.length;b++){
 		  
-		   var headings = text.split[elements[b]];
+		   var headings = text.split(elements[b]);
       if(headings){
 	      
 	       e('log').innerHTML += '('+headings.length+') '+elements[b]+'<br>';
@@ -88,7 +88,7 @@
 	   var vv = '';
 	   for(var b=0;b<elements.length;b++){
 		  
-		   var headings = text.split[elements[b]];
+		   var headings = text.split(elements[b]);
       if(headings){
 	 for(var a=0;a<headings.length;a++){
 		 
