@@ -64,11 +64,13 @@
 		 
 		 for(var c=0;c<names;c++){
 			 
+			  e('log').innerHTML += '<textarea>'+narrow+'</textarea> '+names[c]+'<br>';	
+			 
 			 if(narrow.indexOf(names[c])!=-1){
             
             vv = narrow.substring (narrow.indexOf('>')+1 , narrow.indexOf('<'));
             	 
-		 e('log').innerHTML += '('+vv+') '+names[c]+'<br>';	 
+		 
         		 }
 		 } 
       }
