@@ -56,8 +56,6 @@
 		  
 		   var headings = text.split(elements[b]);
       if(headings){
-	      
-	       e('log').innerHTML += '('+headings.length+') '+elements[b]+'<br>';
 
 	 for(var a=0;a<headings.length;a++){
 		
@@ -69,9 +67,8 @@
 			 if(narrow.indexOf(names[c])!=-1){
             
             vv = narrow.substring (narrow.indexOf('>')+1 , narrow.indexOf('<'));
-            break;break;
-				 
-				 
+            	 
+		 e('log').innerHTML += '('+narrow+') '+names[c]+'<br>';	 
         		 }
 		 } 
       }
