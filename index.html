@@ -56,7 +56,7 @@ f.append('URL',url);
 var res = sendform_2('feature/aggregation/lite/gettext.php',f);
 res.onload = function(){
 text = res.responseText;
-if(!stop){
+if(!stop && index<layer_urls.length){
  
  layerURL(text);
  getUrlText(layer_urls[index]);
