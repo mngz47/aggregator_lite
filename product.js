@@ -69,7 +69,7 @@
 			 if(narrow.indexOf(names[c])!=-1){
             
             vv = narrow.substring (narrow.indexOf('>')+1 , narrow.indexOf('<'));
-            vv = vv?vv:null;
+            vv = vv.length>3?vv:null;
 				 
 		e('log').innerHTML += '<textarea>'+vv+'</textarea> '+names[c]+'<br>';	
 			 break;
