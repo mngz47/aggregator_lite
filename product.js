@@ -51,7 +51,7 @@
    }
    
    function fetch_field(text,elements,names){
-	   var vv;
+	   var vv = '';
 	   for(var b=0;b<elements.length && !vv;b++){
 		  
 		   var headings = text.split(elements[b]);
@@ -69,8 +69,7 @@
 			 if(narrow.indexOf(names[c])!=-1){
             
             vv = narrow.substring (narrow.indexOf('>')+1 , narrow.indexOf('<'));
-            vv = vv.length>3?vv:null;
-				 
+          
 		e('log').innerHTML += '<textarea>'+vv+'</textarea> '+names[c]+'<br>';	
 			 break;
         		 }
@@ -110,7 +109,7 @@
       
       e('log').innerHTML += '('+url+') Fetch Product<br>';
 
-     hh = fetch_field(text,['<h','<span'],['heading','title','name']);
+     hh = fetch_field(text,['<h','<span'],['name','heading','title']);
      pp = fetch_field(text,['<span','<div'],['price']);
      bb = fetch_field(text,['<span','<div'],['brand']);
      ca = fetch_field(text,['<span','<div'],['category']);
