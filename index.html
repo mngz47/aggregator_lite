@@ -60,6 +60,8 @@ var text = res.responseText;
  
  e('log').innerHTML += '('+layer_urls.length+') links<br>';
  
+ e('log').innerHTML += '('+external_urls.length+') exit links<br>';
+ 
 if(!stop && ind<layer_urls.length){
 
  fetch_product(layer_urls[ind],text);
