@@ -51,13 +51,13 @@
    }
    
    function fetch_field(text,elements,names){
-	   var vv = '';
-	   for(var b=0;b<elements.length;b++){
+	   var vv;
+	   for(var b=0;b<elements.length && !vv;b++){
 		  
 		   var headings = text.split(elements[b]);
       if(headings){
 
-	 for(var a=0;a<headings.length;a++){
+	 for(var a=0;a<headings.length && !vv;a++){
 		
 		
 		var narrow = (headings[a].length>100?headings[a].substring(0,100):headings[a]);
@@ -69,9 +69,10 @@
 			 if(narrow.indexOf(names[c])!=-1){
             
             vv = narrow.substring (narrow.indexOf('>')+1 , narrow.indexOf('<'));
-            	  
+            vv = vv?vv:null;
+				 
 		e('log').innerHTML += '<textarea>'+vv+'</textarea> '+names[c]+'<br>';	
-			 break;break;break;break;
+			 break;
         		 }
 		 } 
       }
