@@ -125,7 +125,7 @@
       }
 	      }
       
-	   dd = fetch_field_2(text,['<div','<p',['description']);
+	   dd = fetch_field_2(text,['<div','<p'],['description']);
 	   cc = fetch_field_2(text,['<div','<p'],['comment','review']);
 	  
    //heading
