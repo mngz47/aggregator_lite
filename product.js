@@ -53,7 +53,7 @@
    
    function fetch_product(url,text){
       
-	  e('log').innerHTML += '('+url+') <br>';
+	  e('log').innerHTML += '('+url+') Fetch Product<br>';
 
       var headings = text.split['<h'];
       
