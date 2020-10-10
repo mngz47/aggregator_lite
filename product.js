@@ -50,122 +50,83 @@
    cc = '';//comments
    }
    
-   
+   function fetch_field(text,elements,names){
+	   var vv = '';
+	   for(var b=0;b<elements.length;b++){
+		  
+		   var headings = text.split[elements[b]];
+      if(headings){
+	 for(var a=0;a<headings.length;a++){
+		 
+		var narrow = (headings[a].length>100?headings[a].substring(0,100):headings[a]);
+		
+		 for(var c=0;c<names;c++){
+			 if(narrow.includes(names[c])){
+            
+            vv = narrow.substring (narrow.indexOf('>')+1 , narrow.indexOf('<'));
+            break;
+				 
+        		 }
+		 } 
+      }
+	}   
+		   
+	   }
+	   return vv;
+   }
+
+ function fetch_field_2(text,elements,names){
+	   var vv = '';
+	   for(var b=0;b<elements.length;b++){
+		  
+		   var headings = text.split[elements[b]];
+      if(headings){
+	 for(var a=0;a<headings.length;a++){
+		 
+		var narrow = (headings[a].length>1000?headings[a].substring(0,1000):headings[a]);
+		
+		 for(var c=0;c<names;c++){
+			 if(narrow.includes(names[c])){
+            
+            vv += narrow.substring (narrow.indexOf('>')+1 , narrow.indexOf('<'))+';;';
+       			 
+        		 }
+		 } 
+      }
+	}   
+		   
+	   }
+	   return vv;
+   }
+
    function fetch_product(url,text){
       
-	  e('log').innerHTML += '('+url+') Fetch Product<br>';
+      e('log').innerHTML += '('+url+') Fetch Product<br>';
 
-      var headings = text.split['<h'];
-      
-      for(var a=0;a<headings.length;a++){
-         if(headings[a].substring(0,100).includes('heading') || headings[a].substring(0,100).includes('tilte')){
-            
-            hh = headings[a].substring (headings[a].indexOf('>') , headings[a].indexOf('<'));
-            break;
-         }
-      }
-      
-      var headings_1 = text.split['<span'];
-      
-       for(var a=0;a<headings_1.length;a++){
-         if(headings_1[a].substring(0,100).includes('heading') || headings_1[a].substring(0,100).includes('tilte')){
-            
-            hh = headings_1[a].substring (headings_1[a].indexOf('>') , headings_1[a].indexOf('<'));
-            break;
-         }
-      }
-      
-      var prices = text.split['<span'];
-      
-      for(var a=0;a<prices.length;a++){
-         if(prices[a].substring(0,100).includes('price')){
-            
-            pp = prices[a].substring (prices[a].indexOf('>')+1 , prices[a].indexOf('<'));
-            break;
-         }
-      }
-      
-	  var brands = text.split['<span'];
-      
-      for(var a=0;a<brands.length;a++){
-         if(brands[a].substring(0,100).includes('brand')){
-            
-            bb = brands[a].substring (brands[a].indexOf('>')+1 , brands[a].indexOf('<'));
-            break;
-         }
-      }
-	  
-	  var categories = text.split['<span'];
-      
-      for(var a=0;a<categories.length;a++){
-         if(categories[a].substring(0,100).includes('category')){
-            
-            ca = categories[a].substring (categories[a].indexOf('>')+1 , categories[a].indexOf('<'));
-            break;
-         }
-      }
-	  
+     hh = fetch_field(text,['<h','<span'],['heading','title']);
+     pp = fetch_field(text,['span'],['price']);
+     bb = fetch_field(text,['span'],['brand']);
+     ca = fetch_field(text,['span'],['category']);
+	   
+//-----------------------------------
+	   
+	   
       var images = text.split['<img'];
       
-      for(var a=0;a<images.length;a++){
-         if(images[a].substring(0,100).includes('product')){
+	   if(images){
+	      for(var a=0;a<images.length;a++){
+		      var narrow = images[a].substring(0,100);
+		      
+         if(narrow.includes('product')){
             
-            ii[ii.length] = images[a].substring (images[a].indexOf('src="') +5, images[a].indexOf('"'));
-            break;
+            ii[ii.length] = narrow.substring (narrow.indexOf('src="') +5, narrow.indexOf('" '));
+           
          }
       }
-     
-	 var narrow_size_1 = 100;
-	 var narrow_size_2 = 1000;
-	 
-      var descriptions = text.split['<p'];
+	      }
       
-      for(var a=0;a<descriptions.length;a++){
-         if(descriptions[a].substring(0,100).includes('description')){
-            
-            var narrow = (descriptions[a].length>1000? descriptions[a].substring(0,1000):descriptions[a]);
-            
-             dd += narrow.substring (narrow.indexOf('>')+1 , narrow.indexOf('<'))+'<br>';
-            
-         }
-      }
-      
-      var descriptions_1 = text.split['<div'];
-      
-      for(var a=0;a<descriptions_1.length;a++){
-         if(descriptions_1[a].substring(0,100).includes('description')){
-            
-			 var narrow = (descriptions_1[a].length>1000? descriptions_1[a].substring(0,1000):descriptions_1[a]);
-            
-             dd += narrow.substring (narrow.indexOf('>')+1 , narrow.indexOf('<'))+'<br>';
-            
-         }
-      }
-      
-      var comments = text.split['<p'];
-      
-      for(var a=0;a<comments.length;a++){
-         if(comments[a].substring(0,100).includes('comment') || comments[a].substring(0,100).includes('review')){
-            
-			var narrow = (comments[a].length>1000? comments[a].substring(0,1000):comments[a]);
-			 
-			cc += narrow.substring (narrow.indexOf('>')+1 , narrow.indexOf('<'))+';;';
-            
-			
-         }
-      }
-      
-      var comments_1 = text.split['<div'];
-      
-      for(var a=0;a<comments_1.length;a++){
-         if(comments_1[a].substring(0,100).includes('comment') || comments[a].substring(0,100).includes('review')){
-            
-             var narrow = (comments_1[a].length>1000? comments_1[a].substring(0,1000):comments_1[a]);
-			 
-			cc += narrow.substring (narrow.indexOf('>')+1 , narrow.indexOf('<'))+';;';
-            
-         }
-      }
+	   dd = fetch_field_2(text,['<div','<p',['description']);
+	   cc = fetch_field_2(text,['<div','<p'],['comment','review']);
 	  
    //heading
    //price
