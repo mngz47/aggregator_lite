@@ -71,7 +71,7 @@
             vv = narrow.substring (narrow.indexOf('>')+1 , narrow.indexOf('<'));
             	  
 		e('log').innerHTML += '<textarea>'+vv+'</textarea> '+names[c]+'<br>';	
-			 break;break;
+			 break;break;break;break;
         		 }
 		 } 
       }
