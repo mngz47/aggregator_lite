@@ -32,9 +32,9 @@ var hh = narrow.substring(narrow.indexOf('href="')+6,narrow.indexOf('" '));
    
 if(hh.includes(e('url').value)){
 layer_urls[layer_urls.length] = hh;
-  
+}else if(!hh.includes('https://')){
+layer_urls[layer_urls.length] = e('url').value+hh;
 }else{
-  
 external_urls[external_urls.length] = hh;
 }
 }
