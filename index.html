@@ -48,28 +48,26 @@ external_urls[external_urls.length] = hh;
  var ind = 0;
  
 async function getUrlText(url){
-var text; 
 
 var f = new FormData();
 f.append('URL',url);
 
 var res = sendform_2('feature/aggregation/lite/gettext.php',f);
 res.onload = function(){
-text = res.responseText;
+var text = res.responseText;
  
  e('log').innerHTML += '('+ind+') index<br>';
  layerURL(text);
  // && index<layer_urls.length
 if(!stop){
- 
- getUrlText(layer_urls[ind]);
+
  fetch_product(layer_urls[ind],text);
  ind+=1;
  
+ getUrlText(layer_urls[ind]);
+ 
    }
 };
-
-return text;
 }
 
 </script>
