@@ -9,6 +9,7 @@
 <span>URL</span>
 <input type=text name=url id=url />
 <a href=# onclick="getUrlText(e('url').value);e('log').innerHTML='';" >START</a>
+<a href=# onclick="stop=true;" >STOP</a>
 <br><br>
 <strong>LOG</strong>
 <div style="border:2px solid red;padding:10px;"  id=log ></div>
@@ -43,6 +44,9 @@ external_urls[external_urls.length] = hh;
 
 }
 
+ var stop = false;
+ var index = 0;
+ 
 function getUrlText(url){
 var text; 
 
@@ -52,15 +56,14 @@ f.append('URL',url);
 var res = sendform_2('feature/aggregation/lite/gettext.php',f);
 res.onload = function(){
 text = res.responseText;
-
-layerURL(text);
-
-for(var a=0;a<layer_urls.length;a++){
-
-   getUrlText(layer_urls[a]);
-   
-   fetch_product(layer_urls[a],text);
-}
+if(!stop){
+ 
+ layerURL(text);
+ getUrlText(layer_urls[index]);
+ fetch_product(layer_urls[index],text);
+ index+=1;
+ 
+   }
 };
 
 return text;
