@@ -10,6 +10,10 @@
 <input type=text name=url id=url />
 <a href=# onclick="getUrlText(e('url').value);e('log').innerHTML='';" >START</a>
 <a href=# onclick="stop=true;" >STOP</a>
+ <br><br>
+<span>INDEX</span>
+<input type=text name=index id=index />
+<a href=# onclick="ind=e('index').value;" >SET_INDEX</a>
 <br><br>
 <strong>LOG</strong>
 <div style="border:2px solid red;padding:10px;"  id=log ></div>
@@ -27,7 +31,8 @@ for(var a=0;a<links.length;a++){
 var narrow = links[a].substring(0,400);
 
 var hh = narrow.substring(narrow.indexOf('href="')+6,narrow.indexOf('" '));
- e('log').innerHTML += '('+hh+') link<br>';
+ 
+ // e('log').innerHTML += '('+hh+') link<br>';
    
   if(layer_urls.indexOf(hh)==-1 && external_urls.indexOf(hh)==-1){
 if(hh.includes(e('url').value)){
@@ -70,6 +75,7 @@ if(!stop && ind<layer_urls.length){
  ind+=1;
  
  getUrlText(layer_urls[ind]);
+ 
  
    }
 };
