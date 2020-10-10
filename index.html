@@ -31,8 +31,8 @@ var hh = narrow.substring(narrow.indexOf('href="')+6,narrow.indexOf('" '));
    
 if(hh.includes(e('url').value) || hh.contains(e('url').value)){
 layer_urls[layer_urls.length] = hh;
-}else if(!hh.includes('https://') || !hh.contains('https://')){
- if(hh.substring(0)=='/'){
+}else if(!hh.includes('https:\/\/') || !hh.contains('https:\/\/')){
+ if(hh.substring(0)=='\/'){
    layer_urls[layer_urls.length] = e('url').value+hh; 
  }
 }else{
