@@ -45,7 +45,7 @@ external_urls[external_urls.length] = hh;
 }
 
  var stop = false;
- var index = 0;
+ var ind = 0;
  
 async function getUrlText(url){
 var text; 
@@ -57,13 +57,14 @@ var res = sendform_2('feature/aggregation/lite/gettext.php',f);
 res.onload = function(){
 text = res.responseText;
  
+ e('log').innerHTML += '('+ind+') index<br>';
  layerURL(text);
  // && index<layer_urls.length
 if(!stop){
  
- getUrlText(layer_urls[index]);
- fetch_product(layer_urls[index],text);
- index+=1;
+ getUrlText(layer_urls[ind]);
+ fetch_product(layer_urls[ind],text);
+ ind+=1;
  
    }
 };
