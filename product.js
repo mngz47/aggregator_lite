@@ -153,15 +153,16 @@
 		     var narrow = (images[a].length>400?images[a].substring(0,400):images[a]);
 		      
          if(narrow.indexOf('product')!=-1){
-            
-            ii[ii.length] = narrow.substring (narrow.indexOf('src="') +5, narrow.indexOf('" '));
-           
+            var ss = narrow.substring (narrow.indexOf('src="') +5, narrow.indexOf('" '));
+		 if(ss.indexOf('https://')==0){
+		    ii[ii.length] = ss;
+		    }
          }
       }
 	      }
       
-	   dd = fetch_field_2(text,['<div','<p'],['description'],200);
-	   cc = fetch_field_2(text,['<div','<p'],['comment','review'],200);
+	   dd = fetch_field_2(text,['<div','<p'],['description'],100);
+	   cc = fetch_field_2(text,['<div','<p'],['comment','review'],100);
 	  
    //heading
    //price
