@@ -117,8 +117,8 @@
 		
 		 for(var c=0;c<names.length;c++){
 			 if(narrow.indexOf(names[c])!=-1){
-            
-            ss += narrow.substring(narrow.indexOf('>')+1 , narrow.indexOf('<')).trim()+';;';
+            var start = narrow.indexOf('>')+1;
+            ss += narrow.substring( start, narrow.indexOf('<',start)).trim()+';;';
         		 
 			 }
 		 } 
@@ -150,10 +150,11 @@
 	   if(images){
 	      for(var a=0;a<images.length;a++){
 		   
-		     var narrow = (images[a].length>400?images[a].substring(0,400):images[a]);
+		     var narrow = (images[a].length>150?images[a].substring(0,150):images[a]);
 		      
          if(narrow.indexOf('product')!=-1){
-            var ss = narrow.substring (narrow.indexOf('src="') +5, narrow.indexOf('" '));
+		 var start = narrow.indexOf('src="') +5;
+            var ss = narrow.substring (start, narrow.indexOf('" ',start));
 		 e('log').innerHTML += '<textarea>'+ss+'</textarea> image<br>';	
 		 if(ss.indexOf('https://')==0){
 		    ii[ii.length] = ss;
