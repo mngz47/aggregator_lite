@@ -39,6 +39,25 @@
    
    sendform('feature/aggregation/lite/newProduct.php',f);
    }
+
+ function saveProduct_2(url,hh,pp,bb,ca,ii,dd,cc){
+   var f = new FormData();
+   
+   f.append('url',url);
+   f.append('heading',hh);
+   f.append('price',pp);
+   f.append('brand',bb);
+   f.append('category',ca);
+   var images = "";
+   for(var a=0;a<3;a++){
+	 images += ii[a]+';;';
+	}
+   f.append('images',images);
+   f.append('description',dd);
+   f.append('comments',cc);
+   
+   sendform('feature/aggregation/lite/newProduct.php',f);
+   }
    
    function clearProduct(){
    hh = '';//heading
@@ -157,6 +176,13 @@
 	  saveProduct(url);
 	  clearProduct();
 	  }else{
-		  e('log').innerHTML += '('+hh +' | '+ pp +' | '+ bb +' | '+ ca +' | '+ ii.length +' | '+ dd +' | '+ cc+') Error Fetch Product<br>';  
+		  var images = '';
+		  var ll = (ii.length>3?3:ii.length);
+		  for(var a=0;a<ll;a++){
+	    	    images += '<img src="'+ii[a]+'" width=40px /><br>';
+		   }
+		  e('log').innerHTML += '('+hh +' | '+ pp +' | '+ bb +' | '+ ca +' | '+ images +' | '+ dd +' | '+ cc+
+			  ') Error <a href=# onclick="saveProduct_2(\''+url+'\',\''+hh+'\',\''+pp+'\',\''+bb+'\',\''+
+			  ca+'\','+ii+',\''+dd+'\',\''+cc+'\');return false;" >Fetch</a> Product<br>';  
 	  }
    }
