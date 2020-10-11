@@ -68,7 +68,7 @@
 			 
 			 if(narrow.indexOf(names[c])!=-1){
             
-         var ss = narrow.substring (narrow.indexOf('>')+1 , narrow.indexOf('<'));
+         var ss = narrow.substring (narrow.indexOf('>')+1 , narrow.indexOf('<')).trim();
           
 				 if(ss.length>size){
 				    
@@ -85,8 +85,9 @@
 	   return vv;
    }
 
- function fetch_field_2(text,elements,names){
-	   var vv = '';
+ function fetch_field_2(text,elements,names,size){
+	 var ss = '';  
+	 var vv = '';
 	   for(var b=0;b<elements.length;b++){
 		  
 		   var headings = text.split(elements[b]);
@@ -98,14 +99,18 @@
 		 for(var c=0;c<names.length;c++){
 			 if(narrow.indexOf(names[c])!=-1){
             
-            vv += narrow.substring (narrow.indexOf('>')+1 , narrow.indexOf('<'))+';;';
-        		
+            ss += narrow.substring(narrow.indexOf('>')+1 , narrow.indexOf('<')).trim()+';;';
+        		 
 			 }
 		 } 
       }
 	}   
 	   }
 	 
+	  if(ss.length>size){    
+		  vv = ss;		 
+		e('log').innerHTML += '<textarea>'+vv+'</textarea> description<br>';	
+	  }
 	   return vv;
    }
 
@@ -136,8 +141,8 @@
       }
 	      }
       
-	   dd = fetch_field_2(text,['<div','<p'],['description']);
-	   cc = fetch_field_2(text,['<div','<p'],['comment','review']);
+	   dd = fetch_field_2(text,['<div','<p'],['description'],600);
+	   cc = fetch_field_2(text,['<div','<p'],['comment','review'],600);
 	  
    //heading
    //price
