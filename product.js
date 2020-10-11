@@ -125,9 +125,10 @@
       
 	   if(images){
 	      for(var a=0;a<images.length;a++){
-		      var narrow = images[a].substring(0,100);
+		   
+		     var narrow = (images[a].length>1000?images[a].substring(0,1000):images[a]);
 		      
-         if(narrow.includes('product')){
+         if(narrow.indexOf('product')!=-1){
             
             ii[ii.length] = narrow.substring (narrow.indexOf('src="') +5, narrow.indexOf('" '));
            
