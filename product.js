@@ -121,12 +121,12 @@
 //-----------------------------------
 	   
 	   
-      var images = text.split['<img'];
+      var images = text.split('<img');
       
 	   if(images){
 	      for(var a=0;a<images.length;a++){
 		   
-		     var narrow = (images[a].length>1000?images[a].substring(0,1000):images[a]);
+		     var narrow = (images[a].length>400?images[a].substring(0,400):images[a]);
 		      
          if(narrow.indexOf('product')!=-1){
             
