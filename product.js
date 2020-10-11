@@ -154,6 +154,7 @@
 		      
          if(narrow.indexOf('product')!=-1){
             var ss = narrow.substring (narrow.indexOf('src="') +5, narrow.indexOf('" '));
+		 e('log').innerHTML += '<textarea>'+ss+'</textarea> image<br>';	
 		 if(ss.indexOf('https://')==0){
 		    ii[ii.length] = ss;
 		    }
