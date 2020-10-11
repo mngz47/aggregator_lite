@@ -118,7 +118,7 @@
       
       e('log').innerHTML += '('+url+') Fetch Product<br>';
 
-     hh = fetch_field(text,['<h','<span'],['name','heading','title'],35);
+     hh = fetch_field(text,['<h','<span'],['name','heading','title'],25);
      pp = fetch_field(text,['<span','<div'],['price'],2);
      bb = fetch_field(text,['<span','<div'],['brand'],4);
      ca = fetch_field(text,['<span','<div'],['category'],6);
@@ -141,8 +141,8 @@
       }
 	      }
       
-	   dd = fetch_field_2(text,['<div','<p'],['description'],600);
-	   cc = fetch_field_2(text,['<div','<p'],['comment','review'],600);
+	   dd = fetch_field_2(text,['<div','<p'],['description'],300);
+	   cc = fetch_field_2(text,['<div','<p'],['comment','review'],300);
 	  
    //heading
    //price
