@@ -150,11 +150,12 @@
 	   if(images){
 	      for(var a=0;a<images.length;a++){
 		   
-		     var narrow = (images[a].length>450?images[a].substring(0,450):images[a]);
+		     var narrow = (images[a].length>650?images[a].substring(0,650):images[a]);
 		      
          if(narrow.indexOf('product')!=-1){
 		 var start = narrow.indexOf('src="') +5;
-            var ss = narrow.substring (start, narrow.indexOf('" ',start));
+            var ss = narrow.substring (start, narrow.indexOf('" ',start)).trim();
+		 
 		 e('log').innerHTML += '<textarea>'+ss+'</textarea> image<br>';	
 		 if(ss.indexOf('https://')==0){
 		    ii[ii.length] = ss;
