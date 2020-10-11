@@ -160,8 +160,8 @@
       }
 	      }
       
-	   dd = fetch_field_2(text,['<div','<p'],['description'],300);
-	   cc = fetch_field_2(text,['<div','<p'],['comment','review'],300);
+	   dd = fetch_field_2(text,['<div','<p'],['description'],200);
+	   cc = fetch_field_2(text,['<div','<p'],['comment','review'],200);
 	  
    //heading
    //price
