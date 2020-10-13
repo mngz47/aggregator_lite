@@ -86,9 +86,11 @@
 		//	  e('log').innerHTML += '<textarea>'+narrow+'</textarea> '+names[c]+'<br>';	
 			 
 			 if(narrow.indexOf(names[c])!=-1){
-            
-         var ss = narrow.substring (narrow.indexOf('>')+1 , narrow.indexOf('<')).trim();
-          
+                    
+		// narrow.search(/>[A-Za-z]{15,40}</); narrow.indexOf('>')+1
+        var start = narrow.search(/>[A-Za-z]{15,40}</); 
+	var ss = narrow.substring (start, narrow.indexOf('<',start)).trim();
+    
 				 if(ss.length>size){
 				    
 		  vv = ss;		 
@@ -137,7 +139,7 @@
       
       e('log').innerHTML += '('+url+') Fetch Product<br>';
 
-     hh = fetch_field(text,['<h','<span'],['name','heading','title'],35);
+     hh = fetch_field(text,['<h','<span'],['name','heading','title'],15);
      pp = fetch_field(text,['<span','<div'],['price'],2);
      bb = fetch_field(text,['<span','<div'],['brand'],4);
      ca = fetch_field(text,['<span','<div'],['category'],6);
