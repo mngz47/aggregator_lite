@@ -88,7 +88,7 @@
 			 if(narrow.indexOf(names[c])!=-1){
                     
 		// narrow.search(/>[A-Za-z]{15,40}</); narrow.indexOf('>')+1
-        var start = narrow.search(/>[A-Za-z]{15,40}</); 
+        var start = narrow.search(/>[A-Za-z\s]{15,40}</); 
 	var ss = narrow.substring (start, narrow.indexOf('<',start)).trim();
     
 				 if(ss.length>size){
@@ -119,7 +119,8 @@
 		
 		 for(var c=0;c<names.length;c++){
 			 if(narrow.indexOf(names[c])!=-1){
-            var start = narrow.indexOf('>')+1;
+	   
+	    var start = narrow.search(/>[A-Za-z\s]{100,1000}</); 
             ss += narrow.substring( start, narrow.indexOf('<',start)).trim()+';;';
         		 
 			 }
@@ -166,8 +167,8 @@
       }
 	      }
       
-	   dd = fetch_field_2(text,['<div','<p'],['description'],100);
-	   cc = fetch_field_2(text,['<div','<p'],['comment','review'],100);
+	   dd = fetch_field_2(text,['<div','<p'],['description'],200);
+	   cc = fetch_field_2(text,['<div','<p'],['comment','review'],200);
 	  
    //heading
    //price
