@@ -140,7 +140,7 @@
       
       e('log').innerHTML += '('+url+') Fetch Product<br>';
 
-     hh = fetch_field(text,['<h','<span'],['name','heading','title'],15);
+     hh = fetch_field(text,['<h','<span'],['name','heading','title'],25);
      pp = fetch_field(text,['<span','<div'],['price'],2);
      bb = fetch_field(text,['<span','<div'],['brand'],4);
      ca = fetch_field(text,['<span','<div'],['category'],6);
