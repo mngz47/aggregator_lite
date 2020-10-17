@@ -86,8 +86,8 @@
 			 
 			 if(narrow.indexOf(names[c])!=-1){
                     
-		// narrow.search(/>[A-Za-z0-9]{15,40}</); narrow.indexOf('>')+1
-        var start = narrow.search(/$(>.*<)/); 
+		// narrow.search(/$(>.*<)/);narrow.search(/>[A-Za-z0-9]{15,40}</); narrow.indexOf('>')+1
+        var start =  narrow.indexOf('>')+1;
 	var ss = narrow.substring (start, narrow.indexOf('<',start)).trim();
     
 				 if(ss.length>size){
