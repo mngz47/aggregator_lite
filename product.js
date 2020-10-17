@@ -136,6 +136,19 @@
 	   return vv;
    }
 
+function image_List(ll){
+	var i_l = ll.split(',');
+	for(var a=0;a<i_l.length;a++){
+		var ss =  i_l[a].substring(1,-1);
+		e('log').innerHTML += '<textarea>'+ss+'</textarea> image<br>';	
+		 if(ss.indexOf('https://')==0 ){
+		    	ii[ii.length] = ss;
+		    }else if(ss.indexOf('//')==0 ){
+			ii[ii.length] = 'https:'+ss;     
+		    }
+	}
+}
+
    function fetch_product(url,text){
       
       e('log').innerHTML += '('+url+') Fetch Product<br>';
@@ -158,19 +171,23 @@
 		      //  e('log').innerHTML += '<textarea>'+narrow+'</textarea> image RAW<br>';
 		      
         if(narrow.indexOf('product')!=-1){
+	    
+	    var image_list = narrow.indexOf('imageList')!=-1;
 		
-	    var start = (narrow.indexOf('imageList')!=-1? (narrow.indexOf('imageList = [\'') +14) : narrow.indexOf('src="')+5);
+	    var start = (image_list? (narrow.indexOf('imageList = [') +14) : narrow.indexOf('src="')+5);
 		
-            var ss = narrow.substring (start, narrow.indexOf((narrow.indexOf('imageList')!=-1?'\'':'"'),start)).trim();
+            var ss = narrow.substring(start, narrow.indexOf((image_list?']':'"'),start)).trim();
 		
-		// if(narrow.indexOf('>')==-1){
-		     e('log').innerHTML += '<textarea>'+ss+'</textarea> image<br>';	
-		 if(ss.indexOf('https://')==0 ){
+		 if(image_list){
+		    image_List(ss);
+       		 }else{
+		 e('log').innerHTML += '<textarea>'+ss+'</textarea> image<br>';	
+		    if(ss.indexOf('https://')==0 ){
 		    	ii[ii.length] = ss;
 		    }else if(ss.indexOf('//')==0 ){
 			ii[ii.length] = 'https:'+ss;     
 		    }
-		//    }
+	         }
         }
       }
 	      }
