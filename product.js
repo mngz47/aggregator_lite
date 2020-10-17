@@ -154,7 +154,7 @@
 	      for(var a=0;a<images.length;a++){
 		   
 		     var narrow = images[a];// (images[a].length>1850?images[a].substring(0,1850):images[a]);
-		      
+		        e('log').innerHTML += '<textarea>'+narrow+'</textarea> image RAW<br>';
      //    if(narrow.indexOf('product')!=-1){
 		 var start = narrow.indexOf('src="') +5;
             var ss = narrow.substring (start, narrow.indexOf('"',start)).trim();
