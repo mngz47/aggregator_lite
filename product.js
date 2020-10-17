@@ -114,13 +114,14 @@
       if(headings){
 	 for(var a=0;a<headings.length;a++){
 		 
-		var narrow = (headings[a].length>1000?headings[a].substring(0,1000):headings[a]);
+		var narrow = (headings[a].length>3000?headings[a].substring(0,3000):headings[a]);
 		
 		 for(var c=0;c<names.length;c++){
 			 if(narrow.indexOf(names[c])!=-1){
-	   
-	    var start = narrow.search(/>[A-Za-z\s]{100,1000}</); 
-            ss += narrow.substring( start, narrow.indexOf('<',start)).trim()+';;';
+	   //narrow.search(/>[A-Za-z\s]{100,1000}</); 
+	    var start = narrow.indexOf('>');
+				 var sss = narrow.substring( start, narrow.indexOf('<',start)).trim()+';;';
+            ss += (sss.indexOf('>')==-1?sss:'');
         		 
 			 }
 		 } 
@@ -128,7 +129,7 @@
 	}   
 	   }
 	 
-	  if(ss.length>size){    
+	  if(ss.length>size && ss.indexOf('>')==-1){    
 		  vv = ss;		 
 		e('log').innerHTML += '<textarea>'+vv+'</textarea> description<br>';	
 	  }
@@ -152,7 +153,7 @@
 	   if(images){
 	      for(var a=0;a<images.length;a++){
 		   
-		     var narrow = (images[a].length>1850?images[a].substring(0,1850):images[a]);
+		     var narrow = images[a];// (images[a].length>1850?images[a].substring(0,1850):images[a]);
 		      
      //    if(narrow.indexOf('product')!=-1){
 		 var start = narrow.indexOf('src="') +5;
