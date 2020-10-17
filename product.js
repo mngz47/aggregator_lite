@@ -114,10 +114,11 @@
       if(headings){
 	 for(var a=0;a<headings.length;a++){
 		 
-		var narrow = (headings[a].length>3000?headings[a].substring(0,3000):headings[a]);
+		var narrow = headings[a];//(headings[a].length>3000?headings[a].substring(0,3000):headings[a]);
 		
 		 for(var c=0;c<names.length;c++){
 			 if(narrow.indexOf(names[c])!=-1){
+				 e('log').innerHTML += '<textarea>'+narrow+'</textarea> description<br>';
 	   //narrow.search(/>[A-Za-z\s]{100,1000}</); 
 	    var start = narrow.indexOf('>');
 				 var sss = narrow.substring( start, narrow.indexOf('<',start)).trim()+';;';
@@ -142,8 +143,10 @@ function image_List(ll){
 		var ss =  i_l[a].substring(1,(i_l[a].length-1));
 		e('log').innerHTML += '<textarea>'+ss+'</textarea> image<br>';	
 		 if(ss.indexOf('https://')==0 ){
+			  e('log').innerHTML += '<textarea>'+ss+'</textarea> image<br>';	
 		    	ii[ii.length] = ss;
 		    }else if(ss.indexOf('//')==0 ){
+			     e('log').innerHTML += '<textarea>'+ss+'</textarea> image<br>';	
 			ii[ii.length] = 'https:'+ss;     
 		    }
 	}
@@ -183,8 +186,10 @@ function image_List(ll){
        		 }else{
 		 e('log').innerHTML += '<textarea>'+ss+'</textarea> image<br>';	
 		    if(ss.indexOf('https://')==0 ){
+			   e('log').innerHTML += '<textarea>'+ss+'</textarea> image<br>';	
 		    	ii[ii.length] = ss;
 		    }else if(ss.indexOf('//')==0 ){
+			 e('log').innerHTML += '<textarea>'+ss+'</textarea> image<br>';	
 			ii[ii.length] = 'https:'+ss;     
 		    }
 	         }
