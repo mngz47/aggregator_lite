@@ -152,7 +152,7 @@
 	   if(images){
 	      for(var a=0;a<images.length;a++){
 		   
-		     var narrow = (images[a].length>1550?images[a].substring(0,1550):images[a]);
+		     var narrow = (images[a].length>1850?images[a].substring(0,1850):images[a]);
 		      
      //    if(narrow.indexOf('product')!=-1){
 		 var start = narrow.indexOf('src="') +5;
