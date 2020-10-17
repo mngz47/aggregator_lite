@@ -153,16 +153,20 @@
 	   if(images){
 	      for(var a=0;a<images.length;a++){
 		   
-		     var narrow = images[a];// (images[a].length>1000?images[a].substring(0,1000):images[a]);
+	    var narrow = images[a];// (images[a].length>1000?images[a].substring(0,1000):images[a]);
+		      
 		      //  e('log').innerHTML += '<textarea>'+narrow+'</textarea> image RAW<br>';
+		      
         if(narrow.indexOf('product')!=-1){
-		 var start = (narrow.indexOf('imageList')!=-1? (narrow.indexOf('imageList = [\'') +14) : narrow.indexOf('src="')+5);
+		
+	    var start = (narrow.indexOf('imageList')!=-1? (narrow.indexOf('imageList = [\'') +14) : narrow.indexOf('src="')+5);
 		
             var ss = narrow.substring (start, narrow.indexOf((narrow.indexOf('imageList')!=-1?'\'': '"'),start)).trim();
+		
 		 if(narrow.indexOf('>')==-1){
 		     e('log').innerHTML += '<textarea>'+ss+'</textarea> image<br>';	
 		 if(ss.indexOf('https://')==0 ){
-		    ii[ii.length] = ss;
+		    	ii[ii.length] = ss;
 		    }else if(ss.indexOf('//')==0 ){
 			ii[ii.length] = 'https:'+ss;     
 		    }
