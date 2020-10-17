@@ -161,16 +161,16 @@
 		
 	    var start = (narrow.indexOf('imageList')!=-1? (narrow.indexOf('imageList = [\'') +14) : narrow.indexOf('src="')+5);
 		
-            var ss = narrow.substring (start, narrow.indexOf((narrow.indexOf('imageList')!=-1?'\'': '"'),start)).trim();
+            var ss = narrow.substring (start, narrow.indexOf((narrow.indexOf('imageList')!=-1?'\'':'"'),start)).trim();
 		
-		 if(narrow.indexOf('>')==-1){
+		// if(narrow.indexOf('>')==-1){
 		     e('log').innerHTML += '<textarea>'+ss+'</textarea> image<br>';	
 		 if(ss.indexOf('https://')==0 ){
 		    	ii[ii.length] = ss;
 		    }else if(ss.indexOf('//')==0 ){
 			ii[ii.length] = 'https:'+ss;     
 		    }
-		    }
+		//    }
         }
       }
 	      }
