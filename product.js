@@ -152,15 +152,16 @@
 	   if(images){
 	      for(var a=0;a<images.length;a++){
 		   
-		     var narrow = (images[a].length>650?images[a].substring(0,650):images[a]);
+		     var narrow = (images[a].length>1050?images[a].substring(0,1050):images[a]);
 		      
          if(narrow.indexOf('product')!=-1){
 		 var start = narrow.indexOf('src="') +5;
-            var ss = narrow.substring (start, narrow.indexOf('" ',start)).trim();
-		 
-		 e('log').innerHTML += '<textarea>'+ss+'</textarea> image<br>';	
+            var ss = narrow.substring (start, narrow.indexOf('"',start)).trim();
+		 if(narrow.indexOf('>')==-1){
+		     e('log').innerHTML += '<textarea>'+ss+'</textarea> image<br>';	
 		 if(ss.indexOf('https://')==0){
 		    ii[ii.length] = ss;
+		    }
 		    }
          }
       }
