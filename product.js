@@ -153,8 +153,8 @@
 	   if(images){
 	      for(var a=0;a<images.length;a++){
 		   
-		     var narrow = (images[a].length>1000?images[a].substring(0,1000):images[a]);
-		        e('log').innerHTML += '<textarea>'+narrow+'</textarea> image RAW<br>';
+		     var narrow = images[a];// (images[a].length>1000?images[a].substring(0,1000):images[a]);
+		      //  e('log').innerHTML += '<textarea>'+narrow+'</textarea> image RAW<br>';
         if(narrow.indexOf('product')!=-1){
 		 var start = (narrow.indexOf('imageList')!=-1? (narrow.indexOf('imageList = [\'') +14) : narrow.indexOf('src="')+5);
 		
