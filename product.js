@@ -90,7 +90,7 @@
         var start =  narrow.indexOf('>')+1;
 	var ss = narrow.substring (start, narrow.indexOf('<',start)).trim();
     
-				 if(ss.length>size){
+				 if(ss.length>size && ss.indexOf('>')==-1){
 				    
 		  vv = ss;		 
 		e('log').innerHTML += '<textarea>'+vv+'</textarea> '+names[c]+'<br>';	
