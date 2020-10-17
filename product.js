@@ -139,7 +139,7 @@
 function image_List(ll){
 	var i_l = ll.split(',');
 	for(var a=0;a<i_l.length;a++){
-		var ss =  i_l[a].substring(1,i_l[a].length-1);
+		var ss =  i_l[a]; //.substring(1,i_l[a].length-1);
 		e('log').innerHTML += '<textarea>'+ss+'</textarea> image<br>';	
 		 if(ss.indexOf('https://')==0 ){
 		    	ii[ii.length] = ss;
@@ -174,7 +174,7 @@ function image_List(ll){
 	    
 	    var image_list = narrow.indexOf('imageList')!=-1;
 		
-	    var start = (image_list? (narrow.indexOf('imageList = [') +14) : narrow.indexOf('src="')+5);
+	    var start = (image_list? (narrow.indexOf('imageList = [') +13) : narrow.indexOf('src="')+5);
 		
             var ss = narrow.substring(start, narrow.indexOf((image_list?']':'"'),start)).trim();
 		
