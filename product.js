@@ -95,9 +95,10 @@
 	var ss = narrow.substring (start, narrow.indexOf(endElement,start)).trim();
     
 				if(ss.length>size && ss.indexOf('>')==-1){
-				    
+				   
 		  vv = ss;		 
-		e('log').innerHTML += '<textarea>'+vv+'</textarea> '+names[c]+'<br>';	
+					
+		e('log').innerHTML += '<textarea id='+names[c]+'_'+ind+' >'+vv+'</textarea> '+getFieldFetch(names[c]);	
 			 break;
 				 }
         		 }
@@ -108,6 +109,38 @@
 	   }
 	   return vv;
    }
+
+function getFieldFetch(name){
+	return
+	'<a href=# onclick="saveProduct_2(\''+
+			e('link_'+ind).value+'\',\''+
+			getName(['name','heading','title']).value+'\',\''+
+			e('price_'+ind).value+'\',\''+
+			(e('brand_'+ind)?e('brand_'+ind).value:'')+'\',\''+
+			(e('category_'+ind)?e('category_'+ind).value:'')+'\','+
+			getImage(document.getElementsByClassName('image_'+ind))+',\''+
+			e('description_'+ind).value+'\',\''+
+			getName(['comment','review']).value+'\');return false;" >'+name+'</a><br>';
+}
+
+function getName(names){
+	var ii = 0;
+	var nn = e(names[ii]+'_'+ind);
+	while(!nn){
+	      nn = e(names[ii]+'_'+ind);
+		ii++;
+	      }
+	return nn;
+}
+
+function getImage(texts){
+	var ll = [];
+	for(var a=0;a<texts.length;a++){
+		ll[ll.length] = texts[a].value;
+	}
+	return ll;
+}
+
 
  function fetch_field_2(text,elements,names,size){
 	 var ss = '';  
@@ -138,7 +171,7 @@
 	 
 	  if(ss.length>size){    
 		  vv = ss;		 
-		e('log').innerHTML += '<textarea>'+vv+'</textarea> description<br>';	
+		e('log').innerHTML += '<textarea id='+names[0]+'_'+ind+' >'+vv+'</textarea> '+getFieldFetch(names[0]);	
 	  }
 	   return vv;
    }
@@ -149,11 +182,12 @@ function image_List(ll){
 		var ss =  i_l[a].substring(1,(i_l[a].length-1));
 		// e('log').innerHTML += '<textarea>'+ss+'</textarea> image<br>';	
 		 if(ss.indexOf('https://')==0 ){
-			  e('log').innerHTML += '<textarea>'+ss+'</textarea> image<br>';	
+			  e('log').innerHTML += '<textarea  class=image_'+ind+' >'+ss+'</textarea> image<br>';	
 		    	ii[ii.length] = ss;
 		    }else if(ss.indexOf('//')==0 ){
-			     e('log').innerHTML += '<textarea>'+ss+'</textarea> image<br>';	
-			ii[ii.length] = 'https:'+ss;     
+			    ss = 'https:'+ss; 
+			     e('log').innerHTML += '<textarea class=image_'+ind+' >'+ss+'</textarea> image<br>';	
+			ii[ii.length] = ss;  
 		    }
 	}
 }
@@ -181,11 +215,12 @@ function fetch_images(text){
        		 }else{
 		// e('log').innerHTML += '<textarea>'+ss+'</textarea> image<br>';	
 		    if(ss.indexOf('https://')==0 ){
-			   e('log').innerHTML += '<textarea>'+ss+'</textarea> image<br>';	
+			   e('log').innerHTML += '<textarea  class=image_'+ind+' >'+ss+'</textarea> image<br>';	
 		    	ii[ii.length] = ss;
 		    }else if(ss.indexOf('//')==0 ){
-			 e('log').innerHTML += '<textarea>'+ss+'</textarea> image<br>';	
-			ii[ii.length] = 'https:'+ss;     
+			    ss = 'https:'+ss;
+			 e('log').innerHTML += '<textarea class=image_'+ind+' >'+ss+'</textarea> image<br>';	
+			ii[ii.length] = ss;
 		    }
 	         }
         }
@@ -195,7 +230,7 @@ function fetch_images(text){
 
    function fetch_product(url,text){
       
-      e('log').innerHTML += '('+url+') Fetch Product<br>';
+      e('log').innerHTML += '<textarea id=link_'+ind+' >'+url+'</textarea> Fetch Product<br>';
 
      hh = fetch_field(text,['<h','<span'],['name','heading','title'],25);
      pp = fetch_field(text,['<span','<div'],['price'],2);
