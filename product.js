@@ -94,12 +94,12 @@
 				 	 
 	var ss = narrow.substring (start, narrow.indexOf(endElement,start)).trim();
     
-				// if(ss.length>size && ss.indexOf('>')==-1){
+				if(ss.length>size && ss.indexOf('>')==-1){
 				    
 		  vv = ss;		 
 		e('log').innerHTML += '<textarea>'+vv+'</textarea> '+names[c]+'<br>';	
 			 break;
-				// }
+				 }
         		 }
 		 } 
       }
