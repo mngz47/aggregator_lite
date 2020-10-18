@@ -110,7 +110,7 @@
 	   return vv;
    }
 
-function getFieldFetch(name){
+function getFieldFetch(name_){
 	return
 	'<a href=# onclick="saveProduct_2(\''+
 			e('link_'+ind).value+'\',\''+
@@ -120,7 +120,7 @@ function getFieldFetch(name){
 			(e('category_'+ind)?e('category_'+ind).value:'')+'\','+
 			getImage(document.getElementsByClassName('image_'+ind))+',\''+
 			e('description_'+ind).value+'\',\''+
-			getName(['comment','review']).value+'\');return false;" >'+name+'</a><br>';
+			getName(['comment','review']).value+'\');return false;" >'+name_+'</a><br>';
 }
 
 function getName(names){
