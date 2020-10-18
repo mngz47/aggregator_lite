@@ -111,6 +111,7 @@
    }
 
 function getFieldFetch(name_){
+	alert(name_);
 	return
 	'<a href=# onclick="saveProduct_2(\''+
 			e('link_'+ind).value+'\',\''+
