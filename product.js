@@ -88,14 +88,16 @@
                     
 		// narrow.search(/$(>.*<)/);narrow.search(/>[A-Za-z0-9]{15,40}</); narrow.indexOf('>')+1
         var start =  narrow.indexOf('>')+1;
-	var ss = narrow.substring (start, narrow.indexOf('<',start)).trim();
+	var endElement = elements[b].substring(0)+'/'+elements[b].substring(1,elements[b].length);
+				 	 
+	var ss = narrow.substring (start, narrow.indexOf(endElement,start)).trim();
     
-				 if(ss.length>size && ss.indexOf('>')==-1){
+				// if(ss.length>size && ss.indexOf('>')==-1){
 				    
 		  vv = ss;		 
 		e('log').innerHTML += '<textarea>'+vv+'</textarea> '+names[c]+'<br>';	
 			 break;
-				 }
+				// }
         		 }
 		 } 
       }
