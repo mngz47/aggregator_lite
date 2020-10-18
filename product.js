@@ -57,6 +57,29 @@
    
    sendform('feature/aggregation/lite/newProduct.php',f);
    }
+
+   function saveProduct_3(url,hh,pp,bb,ca,ii,dd,cc){
+   var f = new FormData();
+   
+   f.append('url',url.value);
+   f.append('heading',hh.value);
+   f.append('price',pp.value);
+	 
+   f.append('brand',(bb?bb.value:''));
+   f.append('category',(ca?ca.value:''));
+	 
+   var ii_ =  getImage(ii);
+   var images = "";
+   for(var a=0;a<3;a++){
+	 images += ii_[a]+';;';
+	}
+   f.append('images',images);
+	   
+   f.append('description',dd.value);
+   f.append('comments',cc.value);
+   
+   sendform('feature/aggregation/lite/newProduct.php',f);
+   }
    
    function clearProduct(){
    hh = '';//heading
@@ -111,17 +134,16 @@
    }
 
 function getFieldFetch(name_){
-	alert(name_);
 	return
-	'<a href=# onclick="saveProduct_2(\''+
-			e('link_'+ind).value+'\',\''+
-			getName(['name','heading','title']).value+'\',\''+
-			e('price_'+ind).value+'\',\''+
-			(e('brand_'+ind)?e('brand_'+ind).value:'')+'\',\''+
-			(e('category_'+ind)?e('category_'+ind).value:'')+'\','+
-			getImage(document.getElementsByClassName('image_'+ind))+',\''+
-			e('description_'+ind).value+'\',\''+
-			getName(['comment','review']).value+'\');return false;" >'+name_+'</a><br>';
+	'<a href=# onclick="saveProduct_3('+
+			e('link_'+ind)+','+
+			getName(['name','heading','title'])+','+
+			e('price_'+ind)+','+
+			e('brand_'+ind)+','+
+			e('category_'+ind)+','+
+			document.getElementsByClassName('image_'+ind)+','+
+			e('description_'+ind)+','+
+			getName(['comment','review'])+');return false;" >'+name_+'</a><br>';
 }
 
 function getName(names){
@@ -242,14 +264,6 @@ function fetch_images(text){
       
      dd = fetch_field_2(text,['<div','<p'],['description'],200);
      cc = fetch_field_2(text,['<div','<p'],['comment','review'],200);
-	  
-   //heading
-   //price
-   //brand
-   //category
-   //images
-   //description
-   //comments
    
 	  if(hh && pp && bb && ca && ii.length && dd && cc){
 	  showProduct();
