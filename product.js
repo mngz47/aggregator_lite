@@ -134,8 +134,7 @@
    }
 
 function getFieldFetch(name_){
-	return
-	'<a href=# onclick="saveProduct_3(e(\'link_'+ind+'\'),'+
+	return '<a href=# onclick="saveProduct_3(e(\'link_'+ind+'\'),'+
 			'getName([\'name\',\'heading\',\'title\']),'+
 			'e(\'price_'+ind+'\'),'+
 			'e(\'brand_'+ind+'\'),'+
