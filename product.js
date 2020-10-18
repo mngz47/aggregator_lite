@@ -118,19 +118,21 @@
 		
 		 for(var c=0;c<names.length;c++){
 			 if(narrow.indexOf(names[c])!=-1){
-				 e('log').innerHTML += '<textarea>'+narrow+'</textarea> description<br>';
+		
+            //e('log').innerHTML += '<textarea>'+narrow+'</textarea> description<br>';
 	   //narrow.search(/>[A-Za-z\s]{100,1000}</); 
 	    var start = narrow.indexOf('>');
-				 var sss = narrow.substring( start, narrow.indexOf('<',start)).trim()+';;';
-            ss += (sss.indexOf('>')==-1?sss:'');
-        		 
+	    var endElement = elements[b].substring(0)+'/'+elements[b].substring(1,elements[b].length);
+				 
+				 ss += narrow.substring( start, narrow.indexOf(endElement,start)).trim()+';;';
+				 		 
 			 }
-		 } 
+	        } 
       }
 	}   
 	   }
 	 
-	  if(ss.length>size && ss.indexOf('>')==-1){    
+	  if(ss.length>size){    
 		  vv = ss;		 
 		e('log').innerHTML += '<textarea>'+vv+'</textarea> description<br>';	
 	  }
@@ -141,7 +143,7 @@ function image_List(ll){
 	var i_l = ll.split(',');
 	for(var a=0;a<i_l.length;a++){
 		var ss =  i_l[a].substring(1,(i_l[a].length-1));
-		e('log').innerHTML += '<textarea>'+ss+'</textarea> image<br>';	
+		// e('log').innerHTML += '<textarea>'+ss+'</textarea> image<br>';	
 		 if(ss.indexOf('https://')==0 ){
 			  e('log').innerHTML += '<textarea>'+ss+'</textarea> image<br>';	
 		    	ii[ii.length] = ss;
@@ -152,19 +154,8 @@ function image_List(ll){
 	}
 }
 
-   function fetch_product(url,text){
-      
-      e('log').innerHTML += '('+url+') Fetch Product<br>';
-
-     hh = fetch_field(text,['<h','<span'],['name','heading','title'],25);
-     pp = fetch_field(text,['<span','<div'],['price'],2);
-     bb = fetch_field(text,['<span','<div'],['brand'],4);
-     ca = fetch_field(text,['<span','<div'],['category'],6);
-	   
-//-----------------------------------
-	   
-	   
-      var images = text.split('<img');
+function fetch_images(text){
+	var images = text.split('<img');
       
 	   if(images){
 	      for(var a=0;a<images.length;a++){
@@ -184,7 +175,7 @@ function image_List(ll){
 		 if(image_list){
 		    image_List(ss);
        		 }else{
-		 e('log').innerHTML += '<textarea>'+ss+'</textarea> image<br>';	
+		// e('log').innerHTML += '<textarea>'+ss+'</textarea> image<br>';	
 		    if(ss.indexOf('https://')==0 ){
 			   e('log').innerHTML += '<textarea>'+ss+'</textarea> image<br>';	
 		    	ii[ii.length] = ss;
@@ -195,10 +186,22 @@ function image_List(ll){
 	         }
         }
       }
-	      }
+   }
+}
+
+   function fetch_product(url,text){
       
-	   dd = fetch_field_2(text,['<div','<p'],['description'],200);
-	   cc = fetch_field_2(text,['<div','<p'],['comment','review'],200);
+      e('log').innerHTML += '('+url+') Fetch Product<br>';
+
+     hh = fetch_field(text,['<h','<span'],['name','heading','title'],25);
+     pp = fetch_field(text,['<span','<div'],['price'],2);
+     bb = fetch_field(text,['<span','<div'],['brand'],4);
+     ca = fetch_field(text,['<span','<div'],['category'],6);
+	   
+        fetch_images(text);
+      
+     dd = fetch_field_2(text,['<div','<p'],['description'],200);
+     cc = fetch_field_2(text,['<div','<p'],['comment','review'],200);
 	  
    //heading
    //price
