@@ -87,8 +87,10 @@
 			 if(narrow.indexOf(names[c])!=-1){
                     
 		// narrow.search(/$(>.*<)/);narrow.search(/>[A-Za-z0-9]{15,40}</); narrow.indexOf('>')+1
+				 
         var start =  narrow.indexOf('>')+1;
-	var endElement = elements[b].substring(0)+'/'+elements[b].substring(1,elements[b].length);
+				 
+	var endElement = elements[b].substring(0,1)+'/'+elements[b].substring(1,elements[b].length);
 				 	 
 	var ss = narrow.substring (start, narrow.indexOf(endElement,start)).trim();
     
@@ -124,7 +126,7 @@
             //e('log').innerHTML += '<textarea>'+narrow+'</textarea> description<br>';
 	   //narrow.search(/>[A-Za-z\s]{100,1000}</); 
 	    var start = narrow.indexOf('>');
-	    var endElement = elements[b].substring(0)+'/'+elements[b].substring(1,elements[b].length);
+	    var endElement = elements[b].substring(0,1)+'/'+elements[b].substring(1,elements[b].length);
 				 
 				 ss += narrow.substring( start, narrow.indexOf(endElement,start)).trim()+';;';
 				 		 
