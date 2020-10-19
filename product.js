@@ -65,8 +65,8 @@
    f.append('heading',hh.value);
    f.append('price',pp.value);
 	 
-   f.append('brand',(bb?bb.value:''));
-   f.append('category',(ca?ca.value:''));
+   f.append('brand',(bb?bb.value:'auto'));
+   f.append('category',(ca?ca.value:'auto'));
 	 
    var ii_ =  getImage(ii);
    var images = "";
@@ -76,7 +76,7 @@
    f.append('images',images);
 	   
    f.append('description',dd.value);
-   f.append('comments',cc.value);
+   f.append('comments',(cc?cc.value:'auto'));
    
    sendform('feature/aggregation/lite/newProduct.php',f);
    }
