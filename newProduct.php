@@ -22,7 +22,8 @@
    $_POST['description']  &&
    $_POST['comments'] 
   ){
-      
+ 
+	
 $conn = new mysqli('localhost','produc10_mng','mngzpass636','produc10_productlists');
 $sql = 'SELECT COUNT(id) AS size,id FROM product';
 $result3 = $conn->query($sql);
@@ -38,8 +39,9 @@ if($row3['size']==0){
     //  (id,title,quantity,brand,gender,health_table,price,date_added,company_id,discount)
     //  (parameters,refs,specification,category,category_type)
     //  (measurement,shipment_cost)
-    
-    
+   
+	session_start();
+	  
 $sql = 'INSERT INTO product (id,title,specification,quantity,brand,gender,health_table,price,date_added,company_id,discount,parameters,category,refs,shipment_cost)'.
 ' VALUES ('.$newId.',"'.$_POST['heading'].'","'.$_POST['description'].'",4,"'.$_POST['brand'].'",-1,-1,'.$_POST['price'].',"'.date('d-m-Y H:i').'",'.$_SESSION['company_id'].',0,"'.$parameter.'","'.
 $_POST['category'].'","source>'.$_POST['url'].'|",200);';
