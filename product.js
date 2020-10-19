@@ -147,7 +147,7 @@ function getFieldFetch(name_){
 function getName(names){
 	var ii = 0;
 	var nn = e(names[ii]+'_'+ind);
-	while(!nn){
+	while(!nn && ii<names.length){
 	      nn = e(names[ii]+'_'+ind);
 		ii++;
 	      }
