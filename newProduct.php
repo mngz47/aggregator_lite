@@ -51,12 +51,12 @@ if($result3){
     
 	$conn = new mysqli('localhost','produc10_mng','mngzpass636','produc10_productlists');
     
-	$ii = $_POST['images'].explode(';;');
+	$ii = explode(';;',$_POST['images']);
 	for($a=0;$a<count($ii);$a++){
 		newProductImage($conn,$newId,$ii[$a]);
 	}
 	
-	$cc = $_POST['comments'].explode(';;');
+	$cc = explode(';;',$_POST['comments']);
 	for($a=0;$a<count($cc);$a++){
 		newProductReview($conn,$newId,$cc[$a]);
 	}
