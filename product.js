@@ -135,16 +135,16 @@
 
 function getFieldFetch(name_){
 	return '<a href=# onclick="saveProduct_3(e(\'link_'+ind+'\'),'+
-			'getName([\'name\',\'heading\',\'title\']),'+
+			'getName([\'name\',\'heading\',\'title\'],'+ind+'),'+
 			'e(\'price_'+ind+'\'),'+
 			'e(\'brand_'+ind+'\'),'+
 			'e(\'category_'+ind+'\'),'+
 			'document.getElementsByClassName(\'image_'+ind+'\'),'+
 			'e(\'description_'+ind+'\'),'+
-			'getName([\'comment\',\'review\']));return false;" >'+name_+'</a><br>';
+			'getName([\'comment\',\'review\'],'+ind+'));return false;" >'+name_+'</a><br>';
 }
 
-function getName(names){
+function getName(names,ind){
 	var ii = 0;
 	var nn = e(names[ii]+'_'+ind);
 	while(!nn && ii<names.length){
