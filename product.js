@@ -73,6 +73,7 @@
    for(var a=0;a<3;a++){
 	 images += ii_[a]+';;';
 	}
+	   alert(images);
    f.append('images',images);
 	   
    f.append('description',dd.value);
