@@ -102,9 +102,9 @@
 				   
 		  vv = ss;		 
 			
-		  e('log').innerHTML += '<textarea>'+narrow+'</textarea> '+names[c]+'<br>';	
+		  e('log').innerHTML += '<div ondbclick="this.className=\'block\';if(confirm(\'remove\')){this.remove();}" ><textarea>'+narrow+'</textarea> '+names[c]+'<br></div>';	
 			
-		e('log').innerHTML += '<textarea id='+names[c]+'_'+ind+' onblur="if(confirm(\'remove\')){this.remove();}"   >'+vv+'</textarea> '+getFieldFetch(names[c]);	
+		e('log').innerHTML += '<div ondbclick="this.className=\'block\';if(confirm(\'remove\')){this.remove();}" ><textarea id='+names[c]+'_'+ind+' onblur="if(confirm(\'remove\')){this.remove();}"   >'+vv+'</textarea> '+getFieldFetch(names[c])+'</div>';	
 					
 			 
 				 }
