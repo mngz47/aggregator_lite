@@ -79,7 +79,7 @@
 		   var headings = text.split(elements[b]);
       if(headings){
 
-	 for(var a=0;a<headings.length && !vv;a++){
+	 for(var a=0;a<headings.length;a++){
 		
 		
 		var narrow = (headings[a].length>200?headings[a].substring(0,200):headings[a]);
@@ -98,14 +98,14 @@
 				 	 
 	var ss = narrow.substring (start, narrow.indexOf(endElement,start)).trim();
     
-				//if(ss.length>size && ss.indexOf('>')==-1){
+				if(ss.length>size && ss.indexOf('>')==-1){
 				   
 		  vv = ss;		 
 					
 		e('log').innerHTML += '<textarea id='+names[c]+'_'+ind+' onblur="if(confirm(\'remove\')){this.remove();}"   >'+vv+'</textarea> '+getFieldFetch(names[c]);	
 					
 			 
-				 //}
+				 }
         		 }
 		 } 
       }
@@ -235,7 +235,7 @@ function fetch_images(text){
       
       e('log').innerHTML += '<textarea id=link_'+ind+' >'+url+'</textarea> Fetch Product<br>';
 
-     hh = fetch_field(text,['<h','<span'],['name','heading','title'],17);
+     hh = fetch_field(text,['<h','<span'],['name','heading','title'],20);
      pp = fetch_field(text,['<span','<div'],['price'],2);
      bb = fetch_field(text,['<span','<div'],['brand'],4);
      ca = fetch_field(text,['<span','<div'],['category'],6);
