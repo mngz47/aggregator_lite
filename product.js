@@ -101,7 +101,9 @@
 				if(ss.length>size){ // && ss.indexOf('>')==-1
 				   
 		  vv = ss;		 
-					
+			
+		  e('log').innerHTML += '<textarea>'+narrow+'</textarea> '+names[c]+'<br>';	
+			
 		e('log').innerHTML += '<textarea id='+names[c]+'_'+ind+' onblur="if(confirm(\'remove\')){this.remove();}"   >'+vv+'</textarea> '+getFieldFetch(names[c]);	
 					
 			 
