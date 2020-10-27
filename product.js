@@ -82,7 +82,7 @@
 	 for(var a=0;a<headings.length;a++){
 		
 		
-		var narrow = (headings[a].length>200?headings[a].substring(0,200):headings[a]);
+		var narrow = (headings[a].length>300?headings[a].substring(0,300):headings[a]);
 		 
 		 for(var c=0;c<names.length;c++){
 			 
@@ -92,7 +92,7 @@
                     
 		// narrow.search(/$(>.*<)/);narrow.search(/>[A-Za-z0-9]{15,40}</); narrow.indexOf('>')+1
 				 
-        var start =  narrow.indexOf('>')+1;
+        var start =  narrow.indexOf('>',0)+1;
 				 
 	var endElement = elements[b].substring(0,1)+'/'+elements[b].substring(1,elements[b].length);
 				 	 
