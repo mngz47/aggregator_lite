@@ -96,7 +96,7 @@
 				 
 	var endElement = elements[b].substring(0,1)+'/'+elements[b].substring(1,elements[b].length);
 				 	 
-	var ss = narrow.substring (start, narrow.indexOf(endElement,start)).trim();
+	var ss = narrow.substring (start, narrow.indexOf(endElement,start)); //.trim();
     
 				if(ss.length>size){ // && ss.indexOf('>')==-1
 				   
