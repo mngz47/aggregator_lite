@@ -102,9 +102,9 @@
 				   
 		  vv = ss;		 
 			
-		  e('log').innerHTML += '<div ondbclick="this.className=\'block\';if(confirm(\'remove\')){this.remove();}" ><textarea>'+narrow+'</textarea> '+names[c]+'<br></div>';	
+		  e('log').innerHTML += '<div><textarea>'+narrow+'</textarea> '+names[c]+'<br><a href=# onclick="this.parentNode.className=\'block\';if(confirm(\'remove\')){this.parentNode.remove();}return false;" >xx</a></div>';	
 			
-		e('log').innerHTML += '<div ondbclick="this.className=\'block\';if(confirm(\'remove\')){this.remove();}" ><textarea id='+names[c]+'_'+ind+' onblur="if(confirm(\'remove\')){this.remove();}"   >'+vv+'</textarea> '+getFieldFetch(names[c])+'</div>';	
+		e('log').innerHTML += '<div><textarea id='+names[c]+'_'+ind+' >'+vv+'</textarea> '+getFieldFetch(names[c])+'<a href=# onclick="this.parentNode.className=\'block\';if(confirm(\'remove\')){this.parentNode.remove();}return false;" >xx</a></div>';	
 					
 			 
 				 }
