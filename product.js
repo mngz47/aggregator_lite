@@ -102,8 +102,9 @@
 				   
 		  vv = ss;		 
 					
-		e('log').innerHTML += '<textarea id='+names[c]+'_'+ind+' >'+vv+'</textarea> '+getFieldFetch(names[c]);	
-			 break;
+		e('log').innerHTML += '<textarea id='+names[c]+'_'+ind+' onblur="if(confirm(\'remove\')){this.remove();}"   >'+vv+'</textarea> '+getFieldFetch(names[c]);	
+					
+			 
 				 }
         		 }
 		 } 
