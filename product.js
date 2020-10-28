@@ -220,11 +220,11 @@ function fetch_images(text){
        		 }else{
 		// e('log').innerHTML += '<textarea>'+ss+'</textarea> image<br>';	
 		    if(ss.indexOf('https://')==0 ){
-			   e('log').innerHTML += '<textarea  class=image_'+ind+' >'+ss+'</textarea> image<br>';	
+			   e('log').innerHTML += '<div><textarea  class=image_'+ind+' >'+ss+'</textarea> image<br><a href=# onclick="this.parentNode.className=\'block\';if(confirm(\'remove\')){this.parentNode.remove();}return false;" >xx</a></div>';	
 		    	ii[ii.length] = ss;
 		    }else if(ss.indexOf('//')==0 ){
 			    ss = 'https:'+ss;
-			 e('log').innerHTML += '<textarea class=image_'+ind+' >'+ss+'</textarea> image<br>';	
+			 e('log').innerHTML += '<div><textarea class=image_'+ind+' >'+ss+'</textarea> image<br><a href=# onclick="this.parentNode.className=\'block\';if(confirm(\'remove\')){this.parentNode.remove();}return false;" >xx</a></div>';	
 			ii[ii.length] = ss;
 		    }
 	         }
