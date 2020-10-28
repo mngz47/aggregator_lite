@@ -237,8 +237,8 @@ function fetch_images(text){
       
       e('log').innerHTML += '<textarea id=link_'+ind+' >'+url+'</textarea> Fetch Product<br>';
 
-     hh = fetch_field(text,['<h','<span'],['name','heading','title'],15);
-     pp = fetch_field(text,['<span','<div'],['price'],2);
+     hh = fetch_field(text,['<h','<span'],['name','heading','title','pp_spd'],15);
+     pp = fetch_field(text,['<span','<div','<strong'],['price','cost','pp_mFOB'],2);
      bb = fetch_field(text,['<span','<div'],['brand'],4);
      ca = fetch_field(text,['<span','<div'],['category'],6);
 	   
