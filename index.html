@@ -16,6 +16,43 @@
 <input type=number name=index id=index />
 <a href=# onclick="ind=parseInt(e('index').value);" >SET_INDEX</a>
 <br><br>
+ <fieldset>
+<legend>Parameters</legend>
+<div id=parameters ></div>
+<a href=# onclick="addPP();return false;"  style="float:right;" >add_field</a>
+</fieldset>
+
+<script>
+
+var field_names = ['title','price','description'];
+var index = [2,0,2];
+var tags = ['<span,<h','<span,<div','<div,<p'];
+var indicators = ['title,name,heading','price,cost','review,comment'];
+var size = [20,2,200];
+
+for(var a=0;a<field_names.length;a++){
+addPP(field_names[a],index[a],tags[a],indicators[a],size[a]);
+}
+
+
+function addPP(field_name,index,tags,indicators,size){
+
+e('parameters').innerHTML += 
+
+'<div class=field style="padding:20px;" >'+
+'<a href=# onclick=this.parentNode.remove(); style="float:right;" >XX</a>'+
+'field_name<input type=text id=field_name value="'+(field_name?field_name:'')+'" /><br>'+
+'index<input type=number id=index value="'+(index?index:'')+'" /><br>'+
+'tags<input type=text id=tags value="'+(tags?tags:'')+'" /><br>'+
+'indicators<input type=text id=indicators value="'+(indicators?indicators:'')+'" /><br>'+
+'size<input type=number id=size value="'+(size?size:'')+'" /><br>'+
+'</div>';
+
+}
+
+
+</script>
+<br><br>
 <strong>LOG</strong>
 <div style="border:2px solid red;padding:10px;"  id=log ></div>
 <script>
@@ -81,7 +118,9 @@ if(!stop && ind<layer_urls.length){
    }
 };
 }
-
 </script>
+ 
+ 
+ 
 </body>
 </html>
