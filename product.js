@@ -4,7 +4,7 @@
    var ii = [];//images
    
    function showProduct(){
-	  var fields = e('parameters').getElementByClassName('field');
+	  var fields = e('parameters').getElementsByClassName('field');
 	   for(var a=0;a<fields.length;a++){
 		   e('log').innerHTML += fields[a].getElementById('field_name').value+'::'+values[a]+'<br>';
 	   }
@@ -17,7 +17,7 @@
    var f = new FormData();
 	    f.append('url',url);
 	   
-   var fields = e('parameters').getElementByClassName('field');
+   var fields = e('parameters').getElementsByClassName('field');
 	   
 	   for(var a=0;a<fields.length;a++){
 		   f.append(fields[a].getElementById('field_name').value,values[a]);
@@ -223,7 +223,7 @@ function fetch_images(text){
       
       e('log').innerHTML += '<textarea id=link_'+ind+' >'+url+'</textarea> Fetch Product<br>';
 
-	   var fields = e('parameters').getElementByClassName('field');
+	   var fields = e('parameters').getElementsByClassName('field');
 	   
 	   for(var a=0;a<fields.length;a++){
 		   var vv = fetch_field(text,
