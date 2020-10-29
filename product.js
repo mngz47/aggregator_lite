@@ -229,7 +229,6 @@ function fetch_images(text){
 		   var vv;
 		   
 		   if(fields[a].getElementsByTagName('input')[5].checked){
-			   alert(fields[a].getElementsByTagName('input')[0].value);
 		      vv= fetch_field_2(text,
 		    fields[a].getElementsByTagName('input')[1].value,
 		    fields[a].getElementsByTagName('input')[2].value.split(','),
