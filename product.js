@@ -4,9 +4,10 @@
    var ii = [];//images
    
    function showProduct(){
+	   e('log').innerHTML += 'Show Product::<br>';
 	  var fields = e('parameters').getElementsByClassName('field');
 	   for(var a=0;a<fields.length;a++){
-		   e('log').innerHTML += fields[a].getElementsByTagName('input')[0].value+'::'+values[a]+'<br>';
+		   e('log').innerHTML += fields[a].getElementsByTagName('input')[0].value+'::<textarea>'+values[a]+'</textarea><br>';
 	   }
 	   for(var a=0;a<ii.length;a++){
 	 e('log').innerHTML += '<img src="'+ii[a]+'" width=100px /><br>';
