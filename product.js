@@ -133,14 +133,14 @@ function getImage(texts){
 }
 
 
- function fetch_field_2(text,elements,names,size){
+ function fetch_field_2(text,index,elements,names,size){
 	 var ss = '';  
 	 var vv = '';
 	   for(var b=0;b<elements.length;b++){
 		  
 		   var headings = text.split(elements[b]);
       if(headings){
-	 for(var a=0;a<headings.length;a++){
+	 for(var a=0;a<headings.length && (index==-1?true:(index==a?true:false));a++){
 		 
 		var narrow = headings[a];//(headings[a].length>3000?headings[a].substring(0,3000):headings[a]);
 		
@@ -226,11 +226,21 @@ function fetch_images(text){
 	   var fields = e('parameters').getElementsByClassName('field');
 	   
 	   for(var a=0;a<fields.length;a++){
-		   var vv = fetch_field(text,
+		   var vv;
+		   
+		   if(fields[a].getElementsByTagName('input')[5].checked){
+		      vv= fetch_field_2(text,
 		    fields[a].getElementsByTagName('input')[1].value,
 		    fields[a].getElementsByTagName('input')[2].value.split(','),
 		    fields[a].getElementsByTagName('input')[3].value.split(','),
 		    fields[a].getElementsByTagName('input')[4].value);	
+		      }else{
+		      vv= fetch_field(text,
+		    fields[a].getElementsByTagName('input')[1].value,
+		    fields[a].getElementsByTagName('input')[2].value.split(','),
+		    fields[a].getElementsByTagName('input')[3].value.split(','),
+		    fields[a].getElementsByTagName('input')[4].value);	
+		      }
 		  
 		   if(vv){
 			   values[values.length] = vv;   
