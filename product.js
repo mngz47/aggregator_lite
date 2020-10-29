@@ -6,7 +6,7 @@
    function showProduct(){
 	  var fields = e('parameters').getElementsByClassName('field');
 	   for(var a=0;a<fields.length;a++){
-		   e('log').innerHTML += fields[a].getElementById('field_name').value+'::'+values[a]+'<br>';
+		   e('log').innerHTML += fields[a].getElementsByTagName('input')[0].value+'::'+values[a]+'<br>';
 	   }
 	   for(var a=0;a<ii.length;a++){
 	 e('log').innerHTML += '<img src="'+ii[a]+'" width=100px /><br>';
@@ -20,7 +20,7 @@
    var fields = e('parameters').getElementsByClassName('field');
 	   
 	   for(var a=0;a<fields.length;a++){
-		   f.append(fields[a].getElementById('field_name').value,values[a]);
+		   f.append(fields[a].getElementsByTagName('input')[0].value,values[a]);
 	   }
 	   
    var images = "";
@@ -227,10 +227,10 @@ function fetch_images(text){
 	   
 	   for(var a=0;a<fields.length;a++){
 		   var vv = fetch_field(text,
-		    fields[a].getElementById('index').value,
-		    fields[a].getElementById('tags').value.split(','),
-		    fields[a].getElementById('indicators').value.split(','),
-		    fields[a].getElementById('size').value);	
+		    fields[a].getElementsByTagName('input')[1].value,
+		    fields[a].getElementsByTagName('input')[2].value.split(','),
+		    fields[a].getElementsByTagName('input')[3].value.split(','),
+		    fields[a].getElementsByTagName('input')[4].value);	
 		  
 		   if(vv){
 			   values[values.length] = vv;   
