@@ -1,41 +1,33 @@
   
-   var hh;//heading
-   var pp;//price
-   var bb;//brand
-   var ca;//category
+   var values = [];
+
    var ii = [];//images
-   var dd = '';//description
-   var cc = '';//comments
    
    function showProduct(){
-    e('log').innerHTML += hh+'<br>';
-    e('log').innerHTML += pp+'<br>';
-	e('log').innerHTML += bb+'<br>';
-	e('log').innerHTML += ca+'<br>';
-	for(var a=0;a<ii.length;a++){
+	  var fields = e('parameters').getElementByClassName('field');
+	   for(var a=0;a<fields.length;a++){
+		   e('log').innerHTML += fields[a].getElementById('field_name').value+'::'+values[a]+'<br>';
+	   }
+	   for(var a=0;a<ii.length;a++){
 	 e('log').innerHTML += '<img src="'+ii[a]+'" width=100px /><br>';
-	}
-	
-    e('log').innerHTML += dd+'<br>';
-    e('log').innerHTML += cc+'<br><br>';
+	   }
    }
    
    function saveProduct(url){
    var f = new FormData();
-   
-   f.append('url',url);
-   f.append('heading',hh);
-   f.append('price',pp);
-   f.append('brand',bb);
-   f.append('category',ca);
+	    f.append('url',url);
+	   
+   var fields = e('parameters').getElementByClassName('field');
+	   
+	   for(var a=0;a<fields.length;a++){
+		   f.append(fields[a].getElementById('field_name').value,values[a]);
+	   }
+	   
    var images = "";
    for(var a=0;a<ii.length;a++){
 	 images += ii[a]+';;';
-	}
+	}   
    f.append('images',images);
-   f.append('description',dd);
-   f.append('comments',cc);
-   
    sendform('feature/aggregation/lite/newProduct.php',f);
    }
 
@@ -55,7 +47,6 @@
 	 images += ii_[a]+';;';
 	}
    f.append('images',images);
-	   
    f.append('description',dd.value);
    f.append('comments',(cc?cc.value:'auto'));
    
@@ -63,23 +54,18 @@
    }
    
    function clearProduct(){
-   hh = '';//heading
-   pp = '';//price
-   bb = '';//brand
-   ca = '';//categories
-   ii = [];//images
-   dd = '';//description
-   cc = '';//comments
+   values = [];
+   ii = []; //images
    }
    
-   function fetch_field(text,elements,names,size){
+   function fetch_field(text,index,elements,names,size){
 	   var vv = '';
 	   for(var b=0;b<elements.length && !vv;b++){
 		  
 		   var headings = text.split(elements[b]);
       if(headings){
 
-	 for(var a=0;a<headings.length;a++){
+	 for(var a=0;a<headings.length && (index==-1?true:(index==aa:true:false));a++){
 		
 		
 		var narrow = (headings[a].length>300?headings[a].substring(0,300):headings[a]);
@@ -237,17 +223,23 @@ function fetch_images(text){
       
       e('log').innerHTML += '<textarea id=link_'+ind+' >'+url+'</textarea> Fetch Product<br>';
 
-     hh = fetch_field(text,['<h','<span'],['name','heading','title','pp_spd'],15);
-     pp = fetch_field(text,['<span','<div','<strong'],['price','cost','pp_mFOB'],2);
-     bb = fetch_field(text,['<span','<div'],['brand'],4);
-     ca = fetch_field(text,['<span','<div'],['category'],6);
+	   var fields = e('parameters').getElementByClassName('field');
+	   
+	   for(var a=0;a<fields.length;a++){
+		   var vv = fetch_field(text,
+		    fields[a].getElementById('index').value,
+		    fields[a].getElementById('tags').value.split(','),
+		    fields[a].getElementById('indicators').value.split(','),
+		    fields[a].getElementById('size').value);	
+		  
+		   if(vv){
+			   values[values.length] = vv;   
+		      }
+	   }
 	   
         fetch_images(text);
-      
-     dd = fetch_field_2(text,['<div','<p'],['description'],200);
-     cc = fetch_field_2(text,['<div','<p'],['comment','review'],200);
    
-	  if(hh && pp && bb && ca && ii.length && dd && cc){
+	  if(values.length == fields.length){
 	  showProduct();
 	  saveProduct(url);
 	  clearProduct();
