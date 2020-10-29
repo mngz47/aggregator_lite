@@ -153,7 +153,7 @@ function getImage(texts){
 	    var start = narrow.indexOf('>');
 	    var endElement = elements[b].substring(0,1)+'/'+elements[b].substring(1,elements[b].length);
 				 
-				 ss += narrow.substring( start, narrow.indexOf(endElement,start)).trim()+';;';
+				 ss += '('+a+')'+narrow.substring( start, narrow.indexOf(endElement,start)).trim()+';;';
 				 		 
 			 }
 	        } 
