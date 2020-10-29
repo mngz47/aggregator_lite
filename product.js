@@ -239,7 +239,7 @@ function fetch_images(text){
 	   
         fetch_images(text);
    
-	  if(values.length == fields.length){
+	  if(values.length == fields.length && ii){
 	  showProduct();
 	  saveProduct(url);
 	  clearProduct();
