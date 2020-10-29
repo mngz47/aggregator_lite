@@ -65,7 +65,7 @@
 		   var headings = text.split(elements[b]);
       if(headings){
 
-	 for(var a=0;a<headings.length && (index==-1?true:(index==aa:true:false));a++){
+	 for(var a=0;a<headings.length && (index==-1?true:(index==a?true:false));a++){
 		
 		
 		var narrow = (headings[a].length>300?headings[a].substring(0,300):headings[a]);
