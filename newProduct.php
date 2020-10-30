@@ -77,6 +77,17 @@ $result3 = $conn->query($sql);
         }    
     
 }
-}
+}else{
+	echo 
+  $_POST['url']  +';;'+
+  $_POST['heading']  +';;'+
+   $_POST['price']  +';;'+
+   $_POST['brand']  +';;'+
+   $_POST['category']  +';;'+
+   $_POST['images']  +';;'+
+   $_POST['description']  +';;'+
+   $_POST['comments']; 
+		
+  }
 
 ?>
