@@ -159,7 +159,7 @@ function getName(names,ind){
 	 
 	  if(ss.length>size){    
 		  vv = ss;		 
-		e('log').innerHTML += '<textarea id='+names[0]+'_'+ind+' >'+vv.replace('"','')+'</textarea> '+getFieldFetch(names[0]);	
+		e('log').innerHTML += '<textarea id='+names[0]+'_'+ind+' >'+vv.replace(/"/g,'')+'</textarea> '+getFieldFetch(names[0]);	
 	  }
 	   return vv;
    }
