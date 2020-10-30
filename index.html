@@ -9,7 +9,7 @@
 <h3>Target Website</h3>
 <span>URL</span>
 <input type=text name=url id=url />
-<a href=# onclick="getUrlText(e('url').value);e('log').innerHTML='';ind=(layer_urls.length-1);" >START</a>
+<a href=# onclick="getUrlText(e('url').value);e('log').innerHTML='';ind=layer_urls.length;" >START</a>
 <a href=# onclick="stop=true;" >STOP</a>
  <br><br>
 <span>INDEX</span>
@@ -27,7 +27,7 @@
 var field_names = ['heading','price','description','comments','images'];
 var index = [-1,-1,-1,-1,-1];
 var tags = ['<span,<h','<span,<div','<div,<p','<div,<p','<img'];
-var indicators = ['title,name,heading','price,cost','description','review,comment','src'];
+var indicators = ['title,name,heading,pp_spd','price,cost,pp_mFOB','description,pp_secRow','review,comment','src'];
 var size = [20,2,200,200,70];
 
 for(var a=0;a<field_names.length;a++){
