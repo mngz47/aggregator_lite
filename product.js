@@ -21,6 +21,24 @@
    sendform('feature/aggregation/lite/newProduct.php',f);
    }
 
+
+   function saveProduct_2(url,index){
+   var f = new FormData();
+	   
+     f.append('url',url.value); 
+     f.append('brand','auto');
+     f.append('category','auto');
+     f.append('comments','auto');  
+	   
+	   var fields = e('parameters').getElementsByClassName('field');
+	   for(var a=0;a<fields.length;a++){
+		     f.append(fields[a].getElementsByTagName('input')[0].value,
+			      getName(fields[a].getElementsByTagName('input')[3].value.split(','),index).value);
+	   }   
+														       
+   sendform('feature/aggregation/lite/newProduct.php',f);
+   }
+
    function saveProduct_3(url,hh,pp,bb,ca,ii,dd,cc){
    var f = new FormData();
    
@@ -30,13 +48,8 @@
 	 
    f.append('brand',(bb?bb.value:'auto'));
    f.append('category',(ca?ca.value:'auto'));
-	 
-   var ii_ =  getImage(ii);
-   var images = "";
-   for(var a=0;a<3;a++){
-	 images += ii_[a]+';;';
-	}
-   f.append('images',images);
+	
+   f.append('images',ii);
    f.append('description',dd.value);
    f.append('comments',(cc?cc.value:'auto'));
    
@@ -93,16 +106,20 @@
    }
 
 function getFieldFetch(name_){
-	return '<a href=# onclick="saveProduct_3(e(\'link_'+ind+'\'),'+
-			'getName([\'name\',\'heading\',\'title\'],'+ind+'),'+
-			'e(\'price_'+ind+'\'),'+
-			'e(\'brand_'+ind+'\'),'+
-			'e(\'category_'+ind+'\'),'+
-			'document.getElementsByClassName(\'image_'+ind+'\'),'+
-			'e(\'description_'+ind+'\'),'+
-			'getName([\'comment\',\'review\'],'+ind+'));return false;" >'+name_+'</a><br>';
+	var fff = '';
+	 var fields = e('parameters').getElementsByClassName('field');
+	   for(var a=0;a<fields.length;a++){
+		  fff += 'getName(fields[a].getElementsByTagName(\'input\')[3].value.split(\',\'),'+ind+'),';
+	   }
+	
+		    if(fields.length==7){
+ return '<a href=# onclick="saveProduct_3(e(\'link_'+ind+'\'),'+fff+');return false;" >'+name_+'</a><br>';
+		    }else{
+ return '<a href=# onclick="saveProduct_2(e(\'link_'+ind+'\'),'+ind+');return false;" >'+name_+'</a><br>';    
+		    }
 }
 
+	
 function getName(names,ind){
 	var ii = 0;
 	var nn = e(names[ii]+'_'+ind);
@@ -112,15 +129,6 @@ function getName(names,ind){
 	      }
 	return nn;
 }
-
-function getImage(texts){
-	var ll = [];
-	for(var a=0;a<texts.length;a++){
-		ll[ll.length] = texts[a].value;
-	}
-	return ll;
-}
-
 
  function fetch_field_2(text,index,elements,names,size){
 	 var ss = '';  
