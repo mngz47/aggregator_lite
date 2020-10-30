@@ -68,8 +68,10 @@ var links = text.split('<a ');
 for(var a=0;a<links.length;a++){
 
 var narrow = links[a].substring(0,400);
+ 
+ var begin = narrow.indexOf('href="')+6;
 
-var hh = narrow.substring(narrow.indexOf('href="')+6,narrow.indexOf('" '));
+var hh = narrow.substring(begin,narrow.indexOf('"',begin));
  
  // e('log').innerHTML += '('+hh+') link<br>';
    
