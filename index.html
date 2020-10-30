@@ -24,11 +24,11 @@
 
 <script>
 
-var field_names = ['title','price','description','comments'];
-var index = [-1,-1,-1,-1];
-var tags = ['<span,<h','<span,<div','<div,<p','<div,<p'];
-var indicators = ['title,name,heading','price,cost','description','review,comment'];
-var size = [20,2,200,200];
+var field_names = ['title','price','description','comments','images'];
+var index = [-1,-1,-1,-1,-1];
+var tags = ['<span,<h','<span,<div','<div,<p','<div,<p','<img'];
+var indicators = ['title,name,heading','price,cost','description','review,comment','src'];
+var size = [20,2,200,200,70];
 
 for(var a=0;a<field_names.length;a++){
 addPP(field_names[a],index[a],tags[a],indicators[a],size[a]);
