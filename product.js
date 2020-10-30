@@ -1,16 +1,11 @@
   
    var values = [];
-
-   var ii = [];//images
    
    function showProduct(){
 	   e('log').innerHTML += 'Show Product::<br>';
 	  var fields = e('parameters').getElementsByClassName('field');
 	   for(var a=0;a<fields.length;a++){
 		   e('log').innerHTML += fields[a].getElementsByTagName('input')[0].value+'::<textarea>'+values[a]+'</textarea><br>';
-	   }
-	   for(var a=0;a<ii.length;a++){
-	 e('log').innerHTML += '<img src="'+ii[a]+'" width=100px /><br>';
 	   }
    }
    
@@ -23,12 +18,6 @@
 	   for(var a=0;a<fields.length;a++){
 		   f.append(fields[a].getElementsByTagName('input')[0].value,values[a]);
 	   }
-	   
-   var images = "";
-   for(var a=0;a<ii.length;a++){
-	 images += ii[a]+';;';
-	}   
-   f.append('images',images);
    sendform('feature/aggregation/lite/newProduct.php',f);
    }
 
@@ -56,7 +45,6 @@
    
    function clearProduct(){
    values = [];
-   ii = []; //images
    }
    
    function fetch_field(text,index,elements,names,size){
@@ -168,57 +156,6 @@ function getImage(texts){
 	   return vv;
    }
 
-function image_List(ll){
-	var i_l = ll.split(',');
-	for(var a=0;a<i_l.length;a++){
-		var ss =  i_l[a].substring(1,(i_l[a].length-1));
-		// e('log').innerHTML += '<textarea>'+ss+'</textarea> image<br>';	
-		 if(ss.indexOf('https://')==0 ){
-			  e('log').innerHTML += '<textarea  class=image_'+ind+' >'+ss+'</textarea> image<br>';	
-		    	ii[ii.length] = ss;
-		    }else if(ss.indexOf('//')==0 ){
-			    ss = 'https:'+ss; 
-			     e('log').innerHTML += '<textarea class=image_'+ind+' >'+ss+'</textarea> image<br>';	
-			ii[ii.length] = ss;  
-		    }
-	}
-}
-
-function fetch_images(text){
-	var images = text.split('<img');
-      
-	   if(images){
-	      for(var a=0;a<images.length;a++){
-		   
-	    var narrow = images[a];// (images[a].length>1000?images[a].substring(0,1000):images[a]);
-		      
-		      //  e('log').innerHTML += '<textarea>'+narrow+'</textarea> image RAW<br>';
-		      
-        if(narrow.indexOf('product')!=-1){
-	    
-	    var image_list = narrow.indexOf('imageList')!=-1;
-		
-	    var start = (image_list? (narrow.indexOf('imageList = [') +13) : narrow.indexOf('src="')+5);
-		
-            var ss = narrow.substring(start, narrow.indexOf((image_list?']':'"'),start)).trim();
-		
-		 if(image_list){
-		    image_List(ss);
-       		 }else{
-		// e('log').innerHTML += '<textarea>'+ss+'</textarea> image<br>';	
-		    if(ss.indexOf('https://')==0 ){
-			   e('log').innerHTML += '<div><textarea  class=image_'+ind+' >'+ss+'</textarea> image<br><a href=# onclick="this.parentNode.className=\'block\';if(confirm(\'remove\')){this.parentNode.remove();}return false;" >xx</a></div>';	
-		    	ii[ii.length] = ss;
-		    }else if(ss.indexOf('//')==0 ){
-			    ss = 'https:'+ss;
-			 e('log').innerHTML += '<div><textarea class=image_'+ind+' >'+ss+'</textarea> image<br><a href=# onclick="this.parentNode.className=\'block\';if(confirm(\'remove\')){this.parentNode.remove();}return false;" >xx</a></div>';	
-			ii[ii.length] = ss;
-		    }
-	         }
-        }
-      }
-   }
-}
 
    function fetch_product(url,text){
       
@@ -248,9 +185,7 @@ function fetch_images(text){
 		      }
 	   }
 	   
-        fetch_images(text);
-   
-	  if(values.length == fields.length && ii){
+	  if(values.length == fields.length){
 	  showProduct();
 	  saveProduct(url);
 	  clearProduct();
