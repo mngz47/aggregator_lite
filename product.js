@@ -67,7 +67,7 @@
 		   var headings = text.split(elements[b]);
       if(headings){
 
-	 for(var a=0;a<headings.length && (index==-1?true:(index==a?true:false));a++){
+	 for(var a=0;a<headings.length && (index=='-1'?true:(a>parseInt(index.split('-')[0]) && a<parseInt(index.split('-')[1])?true:false));a++){
 		
 		
 		var narrow = (headings[a].length>300?headings[a].substring(0,300):headings[a]);
@@ -137,7 +137,8 @@ function getName(names,ind){
 		  
 		   var headings = text.split(elements[b]);
       if(headings){
-	 for(var a=0;a<headings.length && (index==-1?true:(index==a?true:false));a++){
+	      
+	for(var a=0;a<headings.length && (index=='-1'?true:(a>parseInt(index.split('-')[0]) && a<parseInt(index.split('-')[1])?true:false));a++){
 		 
 		var narrow = headings[a];//(headings[a].length>3000?headings[a].substring(0,3000):headings[a]);
 		
