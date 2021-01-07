@@ -213,9 +213,7 @@ var aliexpress = ['ogTitle','formatedPrice','description','attrValue','skuProper
 	  
 	  e('log').innerHTML += '<textarea id=link_'+ind+' >'+url+'</textarea> <a hrf=# onclick="getUrlText(e(\'link_'+ind+'\').value);ind=(layer_urls.length-1);return false;" >Fetch Product</a><br>';
 
-	  e('log').innerHTML += '<textarea>'+text+'</textarea>Product Text<br>';
-	   
-	 
+	  e('log').innerHTML += '<textarea id=text_'+ind+'>'+text+'</textarea><a href=# onclick="fetch_product("'+url+'",e(\'text_'+ind+'\').value);" >Product Text</a><br>';
 	  
 	 var fields = e('parameters').getElementsByClassName('field');
 	 var scripts = text.split('<script');
