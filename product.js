@@ -97,7 +97,10 @@ function field_format(field_name,vv){
 	
 	while(vv.includes('"')){
 		vv = vv.replace('"','');
+	}while(vv.includes('[')){
+		vv = vv.replace('"'['');
 	}
+	
 	
 	if(field_name=='price'){
 		vv = parseInt(vv.split('$')[1])*20;
