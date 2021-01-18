@@ -84,8 +84,21 @@ function rinse_ali_fields(ind){
 			
 			if(fields[a].value.length>fields[a+1].value.length){
 				fields[a+1].parentNode.remove();
-		    }else{
+		    	}else{
 				fields[a].parentNode.remove();
+			}
+			
+			
+			if(fields[a].nextElementSibling.innerHTML=='attrValue'){
+				   if(/"[\w\s]*"/.test(fields[a].value)){
+				   fields[0].value+=fields[a].value+'<br>';
+				   }
+			}else if(fields[a].nextElementSibling.innerHTML=='ogTitle'){
+				   fields[0].value+=fields[a].value+'<br><br>';
+			}else if(fields[a].nextElementSibling.innerHTML=='description'){
+				   if(/"[\w\s]*"/.test(fields[a].value)){
+				   fields[0].value+=fields[a].value+'<br><br>';
+				   }   
 			}
 			
 		}
@@ -95,15 +108,14 @@ function rinse_ali_fields(ind){
 
 function field_format(field_name,vv){
 	
-	while(vv.includes('"')){
+	while(vv.includes('"') || vv.includes('[')){
 		vv = vv.replace('"','');
-	}while(vv.includes('[')){
-		vv = vv.replace('"'['');
+		vv = vv.replace('[','');
 	}
-	
 	
 	if(field_name=='price'){
 		vv = parseInt(vv.split('$')[1])*20;
+		vv = Math.round(vv + vv*0.34);
 	}else if(field_name=='url'){
 		vv = pushAliExpress(vv);
 	}
@@ -292,10 +304,8 @@ var aliexpress_2 = ['title','formatedAmount','subject ','attrValue','imagePath',
 		
 	 e('log').innerHTML += '<div><textarea class="'+(aliexpress[a]+'_'+ind)+'" id="'+(aliexpress[a]+'_'+ind)+'" >'+vv+'</textarea>'+getFieldFetch(aliexpress[a])+'<a href=# onclick="this.parentNode.className=\'block\';if(confirm(\'remove\')){this.parentNode.remove();}return false;" >xx</a></div>';	
    
-   // e('log').innerHTML += '<div><textarea id="'+(field_names[a]+'_'+ind)+'" >'+vv+'</textarea>'+getFieldFetch(field_names[a])+'<a href=# onclick="this.parentNode.className=\'block\';if(confirm(\'remove\')){this.parentNode.remove();}return false;" >xx</a></div>';	
-	
-		
-	//	e('log').innerHTML += '<div><textarea id='+names[c]+'_'+ind+' >'+vv+'</textarea> '+getFieldFetch(names[c])+'<a href=# onclick="this.parentNode.className=\'block\';if(confirm(\'remove\')){this.parentNode.remove();}return false;" >xx</a></div>';		
+   	// e('log').innerHTML += '<div><textarea id="'+(field_names[a]+'_'+ind)+'" >'+vv+'</textarea>'+getFieldFetch(field_names[a])+'<a href=# onclick="this.parentNode.className=\'block\';if(confirm(\'remove\')){this.parentNode.remove();}return false;" >xx</a></div>';	
+	// e('log').innerHTML += '<div><textarea id='+names[c]+'_'+ind+' >'+vv+'</textarea> '+getFieldFetch(names[c])+'<a href=# onclick="this.parentNode.className=\'block\';if(confirm(\'remove\')){this.parentNode.remove();}return false;" >xx</a></div>';		
 	// e('log').innerHTML += '<div>('+aa+')<textarea>'+attr[aa]+'</textarea> '+fields[a].getElementsByTagName('input')[0].value+'<br><a href=# onclick="this.parentNode.className=\'block\';if(confirm(\'remove\')){this.parentNode.remove();}return false;" >xx</a></div>';	
 	// e('log').innerHTML += '<div><textarea id='+attr[aa]+'_'+ind+' >'+attr[aa].split(':')[1]+'</textarea> '+getFieldFetch(attr[aa])+'<a href=# onclick="this.parentNode.className=\'block\';if(confirm(\'remove\')){this.parentNode.remove();}return false;" >xx</a></div>';	
 				
