@@ -115,7 +115,8 @@ function field_format(field_name,vv){
 	
 	if(field_name=='price'){
 		vv = parseInt(vv.split('$')[1])*20;
-		vv = Math.round(vv + vv*0.34);
+		vv = (vv + Math.round(vv*0.34));
+		
 	}else if(field_name=='url'){
 		vv = pushAliExpress(vv);
 	}
