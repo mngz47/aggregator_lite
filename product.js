@@ -90,14 +90,14 @@ function rinse_ali_fields(ind){
 			
 			
 			if(fields[a].nextElementSibling.innerHTML=='attrValue'){
-				   if(/"[\w\s]*"/.test(fields[a].value)){
-				   fields[1].value+=fields[a].value+'<br>';
+				   if(/".*"/.test(fields[a].value)){
+				   fields[0].value+=fields[a].value+'<br>';
 				   }
 			}else if(fields[a].nextElementSibling.innerHTML=='ogTitle'){
-				   fields[1].value+=fields[a].value+'<br><br>';
+				   fields[0].value+=fields[a].value+'<br><br>';
 			}else if(fields[a].nextElementSibling.innerHTML=='description'){
 				   if(/"[\w\s]*"/.test(fields[a].value)){
-				   fields[0].value+=fields[a].value;
+				   fields[1].value+=fields[a].value;
 				   }   
 			}
 			
