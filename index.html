@@ -118,10 +118,11 @@ e('parameters').innerHTML +=
         for(var aa=0;aa<attr.length;aa++){
       
          if(attr[aa].toLowerCase().includes('productDetailUrl'.toLowerCase()) ){
-          
+          		
+		 var vvvv = attr[aa].split(':')[1];
 		 var vvv = attr[aa].split(':')[2];
 		 
-             var vv = 	(attr[aa].split(':').length>2?attr[aa].split(':')[1]+':'+vvv.substring(0,vvv.indexOf('?',0)):attr[aa].split(':')[1]);
+             var vv = 	(attr[aa].split(':').length>2?vvvv+':'+vvv.substring(0,vvv.indexOf('?',0)):vvvv.substring(0,vvvv.indexOf('?',0)));
 		           
 		 if(layer_urls.indexOf(vv)==-1 && vv.includes('item')){
               
