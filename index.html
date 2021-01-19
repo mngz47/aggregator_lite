@@ -97,6 +97,42 @@ e('parameters').innerHTML +=
  <input type=checkbox id=log_auto_clear />auto clear
 <div style="border:2px solid red;padding:10px;"  id=log ></div>
 <script>
+ 
+ function aliLayerURL(text){
+  
+  //"productDetailUrl":"//www.aliexpress.com/item/1005001887908452.html
+  
+  //  window.runParams = {
+  
+  var scripts = text.split('<script');
+	  
+	  for (var b=0;b<scripts.length;b++){
+    
+     if(scripts[b].includes('window.runParams = {')){
+      
+        var start = scripts[b].indexOf('window.runParams = {')+24;
+   			  var data = scripts[b].substring(start,scripts[b].indexOf('};',start));
+      
+        var attr = data.split(',');
+        for(var aa=0;aa<attr.length;aa++){
+      
+         if(attr[aa].toLowerCase().includes('productDetailUrl'.toLowerCase()) ){
+          
+             var vv = 	(attr[aa].split(':').length>2?attr[aa].split(':')[1]+':'+attr[aa].split(':')[2]:attr[aa].split(':')[1]);
+		           if(layer_urls.indexOf(vv)==-1 && vv.includes('item')){
+              
+                   layer_urls[layer_urls.length] = vv;
+              
+             }
+          
+         }
+        }
+     }
+   }
+  
+ }
+ 
+ 
 var external_urls = [];
 
 var layer_urls = [];
@@ -143,7 +179,11 @@ var res = sendform_2('feature/aggregation/lite/gettext.php',f);
 res.onload = function(){
 var text = res.responseText;
   
- layerURL(text);
+ if(e('url').value.includes('aliexpress')){
+     aliLayerURL(text);
+    }else{
+     layerURL(text);
+    }
  
  e('log').innerHTML += '('+ind+') index<br>';
  
