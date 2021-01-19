@@ -88,7 +88,7 @@ function rinse_ali_fields(ind){
 				   }
 			}else if(fields[a].nextElementSibling.innerHTML=='ogTitle'){
 				   var ffields = document.getElementsByClassName('description_'+ind);  
-				   ffields[0].value+=fields[a].value+'<br><br>';
+				   ffields[0].value+=fields[a].value+'<br>';
 			}else if(fields[a].nextElementSibling.innerHTML=='description'){
 				   if(/"[\w\s]*"/.test(fields[a].value)){
 				   var ffields = document.getElementsByClassName('ogTitle_'+ind);  
