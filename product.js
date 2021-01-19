@@ -82,7 +82,7 @@ function rinse_ali_fields(ind){
 		
 		for(var a=0;a<(fields.length-1);a++){
 			if(fields[a].nextElementSibling.innerHTML=='attrValue'){
-				   if(/"[\w\s]*"/.test(fields[a].value)){
+				   if(/"[A-Za-z0-9\s\/]*"/.test(fields[a].value)){
 				   var ffields = document.getElementsByClassName('description_'+ind);  
 				   ffields[0].value+=fields[a].value+'<br>';
 				   }
@@ -90,7 +90,7 @@ function rinse_ali_fields(ind){
 				   var ffields = document.getElementsByClassName('description_'+ind);  
 				   ffields[0].value+=fields[a].value+'<br>';
 			}else if(fields[a].nextElementSibling.innerHTML=='description'){
-				   if(/"[\w\s]*"/.test(fields[a].value)){
+				   if(/"[A-Za-z0-9\s\/]*"/.test(fields[a].value)){
 				   var ffields = document.getElementsByClassName('ogTitle_'+ind);  
 				   ffields[0].value+=fields[a].value;
 				   }   
