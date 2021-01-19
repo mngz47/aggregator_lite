@@ -119,8 +119,14 @@ e('parameters').innerHTML +=
          if(attr[aa].toLowerCase().includes('productDetailUrl'.toLowerCase()) ){
           
              var vv = 	(attr[aa].split(':').length>2?attr[aa].split(':')[1]+':'+attr[aa].split(':')[2]:attr[aa].split(':')[1]);
-		           if(layer_urls.indexOf(vv)==-1 && vv.includes('item')){
+		           
+		 if(layer_urls.indexOf(vv)==-1 && vv.includes('item')){
               
+			while(vv.includes('"')){
+		vv = vv.replace('"','');
+			}
+	
+				   
                    layer_urls[layer_urls.length] = vv;
               
              }
