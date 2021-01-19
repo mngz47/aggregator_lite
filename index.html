@@ -189,7 +189,7 @@ var res = sendform_2('feature/aggregation/lite/gettext.php',f);
 res.onload = function(){
 var text = res.responseText;
   
- if(e('url').value.includes('aliexpress')){
+ if(e('url').value.includes('aliexpress') && !e('url').value.includes('item')){
      aliLayerURL(text);
     }else{
      layerURL(text);
