@@ -94,7 +94,11 @@ function rinse_ali_fields(ind){
 				   var ffields = document.getElementsByClassName('ogTitle_'+ind);  
 				   ffields[0].value+=fields[a].value;
 				   }   
+			 }else if(fields[a].nextElementSibling.innerHTML=='skuPropertyImagePath'){
+				   var ffields = document.getElementsByClassName('skuPropertyImagePath_'+ind);  
+				   ffields[0].value+=fields[a].value+';;';
 			 }
+			
 		}
 		
 		/* remove similar fields with less content in length
