@@ -109,7 +109,8 @@ e('parameters').innerHTML +=
 	  for (var b=0;b<scripts.length;b++){
     
      if(scripts[b].includes('window.runParams = {')){
-      
+       alert('document parameters');
+	     
         var start = scripts[b].indexOf('window.runParams = {')+24;
    			  var data = scripts[b].substring(start,scripts[b].indexOf('};',start));
       
