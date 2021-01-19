@@ -83,13 +83,16 @@ function rinse_ali_fields(ind){
 		for(var a=0;a<(fields.length-1);a++){
 			if(fields[a].nextElementSibling.innerHTML=='attrValue'){
 				   if(/".*"/.test(fields[a].value)){
-				   fields[0].value+=fields[a].value+'<br>';
+				   var ffields = document.getElementsByClassName('description_'+ind);  
+				   ffields[0].value+=fields[a].value+'<br>';
 				   }
 			}else if(fields[a].nextElementSibling.innerHTML=='ogTitle'){
-				   fields[0].value+=fields[a].value+'<br><br>';
+				   var ffields = document.getElementsByClassName('description_'+ind);  
+				   ffields[0].value+=fields[a].value+'<br><br>';
 			}else if(fields[a].nextElementSibling.innerHTML=='description'){
 				   if(/".*"/.test(fields[a].value)){
-				   fields[1].value+=fields[a].value;
+				   var ffields = document.getElementsByClassName('ogTitle_'+ind);  
+				   ffields[0].value+=fields[a].value;
 				   }   
 			 }
 		}
