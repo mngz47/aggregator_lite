@@ -81,14 +81,6 @@ function rinse_ali_fields(ind){
 		var fields = document.getElementsByClassName(aliexpress[aa]+'_'+ind);
 		
 		for(var a=0;a<(fields.length-1);a++){
-			
-			if(fields[a].value.length>fields[a+1].value.length){
-				fields[a+1].parentNode.remove();
-		    	}else{
-				fields[a].parentNode.remove();
-			}
-			
-			
 			if(fields[a].nextElementSibling.innerHTML=='attrValue'){
 				   if(/".*"/.test(fields[a].value)){
 				   fields[0].value+=fields[a].value+'<br>';
@@ -99,10 +91,19 @@ function rinse_ali_fields(ind){
 				   if(/".*"/.test(fields[a].value)){
 				   fields[1].value+=fields[a].value;
 				   }   
-			}
-			
+			 }
 		}
 		
+		/* remove similar fields with less content in length
+		for(var a=0;a<(fields.length-1);a++){
+			
+			if(fields[a].value.length>fields[a+1].value.length){
+				fields[a+1].parentNode.remove();
+		    	}else{
+				fields[a].parentNode.remove();
+			}
+		}
+		*/
 		}
 }
 
