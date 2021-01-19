@@ -93,7 +93,8 @@ e('parameters').innerHTML +=
 
 </script>
 <br><br>
-<strong>LOG</strong>-<a href=# onclick="e('log').innerHTML='';" >clear</a>
+<strong>LOG</strong>-<a href=# onclick="e('log').innerHTML='';" >clear</a>-
+ <input type=checkbox id=log_auto_clear />auto clear
 <div style="border:2px solid red;padding:10px;"  id=log ></div>
 <script>
 var external_urls = [];
@@ -162,11 +163,19 @@ if(!stop && ind<layer_urls.length){
  fetch_Ali_product_2(layer_urls[ind],text);
  }
 
- /* auto clear log
-  if(e('log').children.length>400){
+ 
+ if(e('log_auto_clear').checked){
+     if(e('log').children.length>400){
   e('log').innerHTML = '';
   }
-  */
+    }
+ 
+ if(e('url_search').value){
+    if(layer_urls.length%500==0){
+        sech();
+    }
+    }
+ 
  
  ind+=1;
  
