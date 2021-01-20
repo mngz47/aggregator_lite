@@ -75,12 +75,22 @@
    sendform('feature/aggregation/lite/newProduct.php',f);
    }
 
+function crop_ali_fields(ind){
+	for(var aa=0;aa<aliexpress.length;aa++){	
+		var fields = document.getElementsByClassName(aliexpress[aa]+'_'+ind);
+		
+		for(var a=1;a<(fields.length);a++){
+			fields[a].parentNode.remove();
+		}
+	}
+}
+
 function rinse_ali_fields(ind){
 	for(var aa=0;aa<aliexpress.length;aa++){
 			
 		var fields = document.getElementsByClassName(aliexpress[aa]+'_'+ind);
 		
-		for(var a=0;a<(fields.length-1);a++){
+		for(var a=0;a<(fields.length);a++){
 			if(fields[a].nextElementSibling.innerHTML=='attrValue'){
 				   if(/"[A-Za-z0-9\s\/]*"/.test(fields[a].value)){
 				   var ffields = document.getElementsByClassName('description_'+ind);  
@@ -275,9 +285,11 @@ var aliexpress_2 = ['title','formatedAmount','subject ','attrValue','imagePath',
 	  
 	  e('log').innerHTML += '<textarea id=link_'+ind+' >'+url+'</textarea><a href=# onclick="getUrlText(e(\'link_'+ind+'\').value);ind=(layer_urls.length-2);return false;" >Fetch Product</a><br>';
 
-	  e('log').innerHTML += '<textarea id=text_'+ind+'>'+text+'</textarea><a href=# onclick="fetch_product(e(\'link_'+ind+'\').value,e(\'text_'+ind+'\').value);return false;" >Product Text</a><br>';
+	 // e('log').innerHTML += '<textarea id=text_'+ind+'>'+text+'</textarea><a href=# onclick="fetch_product(e(\'link_'+ind+'\').value,e(\'text_'+ind+'\').value);return false;" >Product Text</a><br>';
 	   
-	  e('log').innerHTML += '<a href=# onclick="rinse_ali_fields('+ind+');return false;" >Product Field Rinse</a><br>'; 
+	  e('log').innerHTML += '<a href=# onclick="rinse_ali_fields('+ind+');return false;" >Rinse</a>-'; 
+	  e('log').innerHTML += '<a href=# onclick="crop_ali_fields('+ind+');return false;" >Crop</a><br>'; 
+	   
 	  
 	 var fields = e('parameters').getElementsByClassName('field');
 	 var scripts = text.split('<script');
