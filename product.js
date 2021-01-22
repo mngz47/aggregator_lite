@@ -101,7 +101,7 @@ function rinse_ali_fields(ind){
 				   ffields[0].value+=fields[a].value+'<br>';
 				   
 			}else if(fields[a].nextElementSibling.innerHTML=='description'){
-				   if(/"[A-Za-z0-9\s\/&]{15,30}"/.test(fields[a].value)){
+				   if(/"[A-Za-z0-9\s\/&]{10,30}"/.test(fields[a].value) && a>0){
 				   var ffields = document.getElementsByClassName('ogTitle_'+ind);  
 				   ffields[0].value+=fields[a].value;
 				   }   
