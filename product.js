@@ -92,12 +92,12 @@ function rinse_ali_fields(ind){
 		
 		for(var a=0;a<(fields.length);a++){
 			if(fields[a].nextElementSibling.innerHTML=='attrValue'){
-				   if(/"[A-Za-z0-9\s\/&-\(\)]*"!\}/.test(fields[a].value)){
+				   if(/"[A-Za-z0-9\s\/&-\(\)]*"(?!\})/.test(fields[a].value)){
 				   var ffields = document.getElementsByClassName('description_'+ind);  
 				   ffields[0].value+=fields[a].value+'<br>';
 				   }
 			}else if(fields[a].nextElementSibling.innerHTML=='ogTitle'){
-				if(a>=15 && a<=16){
+				if(fields[a].value.length>60 && !fields[a].value.includes('$')){
 				   var ffields = document.getElementsByClassName('description_'+ind);  
 				   ffields[0].value+=fields[a].value+'<br>';
 				}
