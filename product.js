@@ -27,6 +27,7 @@
 	   
      f.append('url',(url.value.includes('aliexpress')?pushAliExpress(url.value):url.value)); 
      f.append('brand','auto');
+	   f.append('date_added',getFormatedDate());   
      f.append('category',(e('category').value?e('category').value:'auto'));
      f.append('comments','auto');  
 	   
@@ -46,6 +47,7 @@
 	   
      f.append('url',(url.value.includes('aliexpress')?pushAliExpress(url.value):url.value)); 
      f.append('brand','auto');
+	f.append('date_added',getFormatedDate());   
      f.append('category',(e('category').value?e('category').value:'auto'));
      f.append('comments','auto');  
 	   
@@ -158,6 +160,7 @@ function pushAliExpress(url){
    f.append('price',pp.value);
 	 
    f.append('brand',(bb?bb.value:'auto'));
+	   f.append('date_added',getFormatedDate());   
    f.append('category',(ca?ca.value:(e('category').value?e('category').value:'auto')));
 	
    f.append('images',ii);
