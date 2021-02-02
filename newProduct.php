@@ -45,7 +45,7 @@ if($row3['size']==0){
 	$description = str_replace(";;","",$_POST['description']);
 	
 $sql = 'INSERT INTO product (id,title,specification,quantity,brand,gender,health_table,price,date_added,company_id,discount,parameters,category,refs,shipment_cost)'.
-' VALUES ('.$newId.',"'.$_POST['heading'].'","'.$description.'",4,"'.$_POST['brand'].'",-1,-1,'.$_POST['price'].',"'.($_POST['date_added']?$_POST['date_added']:date('d-m-Y H:i')).'",'.$_SESSION['company_id'].',0,"'.$parameter.'","'.
+' VALUES ('.$newId.',"'.$_POST['heading'].'","'.$description.'",4,"'.$_POST['brand'].'",-1,-1,'.$_POST['price'].',"'.($_POST['date_added']?$_POST['date_added']:date('d-m-Y H:i')).'",'.$_SESSION['company_id'].',0,"","'.
 $_POST['category'].'","'.(strpos($_POST['url'],'aliexpress')!=-1?'Shop On AliExpress':'Source').'>'.$_POST['url'].'|",200);';
 $result3 = $conn->query(str_replace("'","",$sql));   
 
