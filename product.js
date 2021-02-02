@@ -109,8 +109,10 @@ function rinse_ali_fields(ind){
 				   ffields[0].value+=fields[a].value;
 				   }   
 			 }else if(fields[a].nextElementSibling.innerHTML=='skuPropertyImagePath'){
-				   var ffields = document.getElementsByClassName('skuPropertyImagePath_'+ind);  
-				   ffields[0].value+=fields[a].value+';;';
+				  if(a>1 && a<(fields.length-1)){
+				     var ffields = document.getElementsByClassName('skuPropertyImagePath_'+ind);  
+				     ffields[0].value+=fields[a].value+';;';
+				   }
 			 }
 			
 		}
