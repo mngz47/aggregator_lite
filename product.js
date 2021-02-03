@@ -339,7 +339,7 @@ var aliexpress_2 = ['title','formatedAmount','subject ','attrValue','imagePath',
 		  
 		  if(scripts[b].includes('data: {"actionModule":{')){
 			  
-			  alert('found ali data');
+			//  alert('found ali data');
 			  //data: {
 				  //data: {"actionModule":
 			  var start = scripts[b].indexOf('data: {"actionModule":{')+26;
@@ -348,7 +348,7 @@ var aliexpress_2 = ['title','formatedAmount','subject ','attrValue','imagePath',
 
 	var attr = data.split(',');
 	
-	alert(attr.length);
+	// alert(attr.length);
 	
    
 	for(var aa=0;aa<attr.length;aa++){
