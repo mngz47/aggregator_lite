@@ -59,12 +59,12 @@
 			 
 			 var format = field_format(fields[a].getElementsByTagName('input')[0].value,ff.value);
 			 
-			 alert(format);
+		//	 alert(format);
 		  
 		     f.append(fields[a].getElementsByTagName('input')[0].value,
 			    format);
 		 }catch(e){
-			 alert('missing '+(aliexpress[a]+'_'+index));
+		//	 alert('missing '+(aliexpress[a]+'_'+index));
 		  
 		     f.append(fields[a].getElementsByTagName('input')[0].value,
 			    'missing');
@@ -112,7 +112,7 @@ function rinse_ali_fields(ind){
 				}
 			}else if(fields[a].nextElementSibling.innerHTML=='description'){
 				   if(/"[A-Za-z0-9\s\/&]{10,50}/.test(fields[a].value) && a>0){
-				  if(a==2){
+				  if(a==3){
 				   ffields = document.getElementsByClassName('ogTitle_'+ind);  
 				   ffields[0].value+=fields[a].value;
 				  }
