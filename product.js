@@ -253,7 +253,7 @@ function getFieldFetch(name_){
 		    }else{
 // return '<a href=# onclick="saveProduct_2(e(\'link_'+ind+'\'),'+ind+');return false;" >'+name_+'</a><br>';    
 
- return '<a href=# class=saveProduct_Ali onclick="saveProduct_Ali(e(\'link_'+ind+'\'),'+ind+');return false;" >'+name_+'</a><br>';    
+ return '<a href=# class=saveProduct_Ali_'+ind+' onclick="saveProduct_Ali(e(\'link_'+ind+'\'),'+ind+');return false;" >'+name_+'</a><br>';    
 		 
 		 }
 }
@@ -309,12 +309,12 @@ function getName(names,ind){
 
 	 var rinseBtn = document.getElementsByClassName('rinse_ali_fields');
 	 var cropBtn = document.getElementsByClassName('crop_ali_fields');
-	 var saveBtn = document.getElementsByClassName('saveProduct_Ali');
 	 
 	 for(var a=0;a<rinseBtn.length;a++){
 		 rinseBtn[a].click();
 		 cropBtn[a].click();
-		 saveBtn[a].click();
+                var saveBtn = document.getElementsByClassName('saveProduct_Ali_'+a); 
+		 saveBtn[0].click();
 	 }
  }
 
