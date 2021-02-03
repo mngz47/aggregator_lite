@@ -112,7 +112,7 @@ function rinse_ali_fields(ind){
 				}
 			}else if(fields[a].nextElementSibling.innerHTML=='description'){
 				   if(/"[A-Za-z0-9\s\/&]{10,50}/.test(fields[a].value) && a>0){
-				  if(a==1){
+				  if(a==2){
 				   ffields = document.getElementsByClassName('ogTitle_'+ind);  
 				   ffields[0].value+=fields[a].value;
 				  }
@@ -307,13 +307,14 @@ function getName(names,ind){
 
  function autoComplete(){
 
-	 var rinseBtn = document.getElementsByClassName('rinse_ali_fields');
-	 var cropBtn = document.getElementsByClassName('crop_ali_fields');
+	 var rinseBtn = e('log').getElementsByClassName('rinse_ali_fields');
+	 var cropBtn = e('log').getElementsByClassName('crop_ali_fields');
 	 
-	 for(var a=0;a<rinseBtn.length;a++){
+	 for(var a=1;a<rinseBtn.length;a++){
 		 rinseBtn[a].click();
 		 cropBtn[a].click();
-                var saveBtn = document.getElementsByClassName('saveProduct_Ali_'+a); 
+		
+                var saveBtn = e('log').getElementsByClassName('saveProduct_Ali_'+a); 
 		 saveBtn[0].click();
 	 }
  }
