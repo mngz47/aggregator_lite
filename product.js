@@ -88,6 +88,12 @@ function crop_ali_fields(ind){
 }
 
 function rinse_ali_fields(ind){
+	
+	var ffields = document.getElementsByClassName('description_'+ind);  
+		ffields[0].value = '';
+	 ffields = document.getElementsByClassName('ogTitle_'+ind);  
+	        ffields[0].value = '';
+	
 	for(var aa=0;aa<aliexpress.length;aa++){
 			
 		var fields = document.getElementsByClassName(aliexpress[aa]+'_'+ind);
@@ -95,24 +101,34 @@ function rinse_ali_fields(ind){
 		for(var a=0;a<(fields.length);a++){
 			if(fields[a].nextElementSibling.innerHTML=='attrValue'){
 				   if(/"[A-Za-z0-9\s\/&-\(\)]*"(?!})/.test(fields[a].value)){
-				   var ffields = document.getElementsByClassName('description_'+ind);  
+				   ffields = document.getElementsByClassName('description_'+ind);  
 				   ffields[0].value+=fields[a].value+'<br>';
 				   }
 			}else if(fields[a].nextElementSibling.innerHTML=='ogTitle'){
 				if(fields[a].value.length>60 && !fields[a].value.includes('$')){
-				   var ffields = document.getElementsByClassName('description_'+ind);  
+					
+				   ffields = document.getElementsByClassName('description_'+ind);  
 				   ffields[0].value+=fields[a].value+'<br>';
 				}
 			}else if(fields[a].nextElementSibling.innerHTML=='description'){
 				   if(/"[A-Za-z0-9\s\/&]{10,50}/.test(fields[a].value) && a>0){
-				   var ffields = document.getElementsByClassName('ogTitle_'+ind);  
+				  if(a==1){
+				   ffields = document.getElementsByClassName('ogTitle_'+ind);  
 				   ffields[0].value+=fields[a].value;
+				  }
+				   
 				   }   
 			 }else if(fields[a].nextElementSibling.innerHTML=='skuPropertyImagePath'){
-				  if(a>1 && a<(fields.length-1)){
-				     var ffields = document.getElementsByClassName('skuPropertyImagePath_'+ind);  
+				 
+				 if(fields.length>2){
+				     if(a>1){
+				     ffields = document.getElementsByClassName('skuPropertyImagePath_'+ind);  
 				     ffields[0].value+=fields[a].value+';;';
-				   }
+				   	}
+				    }else{
+				     ffields = document.getElementsByClassName('skuPropertyImagePath_'+ind);  
+				     ffields[0].value+=fields[a].value+';;';
+				    }
 			 }
 			
 		}
@@ -128,6 +144,10 @@ function rinse_ali_fields(ind){
 		}
 		*/
 		}
+	
+         ffields = document.getElementsByClassName('description_'+ind);  
+		ffields[0].value = ffields[0].value.replace('- AliExpress"}','');
+
 }
 
 function field_format(field_name,vv){
@@ -233,7 +253,7 @@ function getFieldFetch(name_){
 		    }else{
 // return '<a href=# onclick="saveProduct_2(e(\'link_'+ind+'\'),'+ind+');return false;" >'+name_+'</a><br>';    
 
- return '<a href=# onclick="saveProduct_Ali(e(\'link_'+ind+'\'),'+ind+');return false;" >'+name_+'</a><br>';    
+ return '<a href=# class=saveProduct_Ali onclick="saveProduct_Ali(e(\'link_'+ind+'\'),'+ind+');return false;" >'+name_+'</a><br>';    
 		 
 		 }
 }
@@ -284,6 +304,20 @@ function getName(names,ind){
 	   return vv;
    }
 
+
+ function autoComplete(){
+
+	 var rinseBtn = document.getElementsByClassName('rinse_ali_fields');
+	 var cropBtn = document.getElementsByClassName('crop_ali_fields');
+	 var saveBtn = document.getElementsByClassName('saveProduct_Ali');
+	 
+	 for(var a=0;a<rinseBtn.length;a++){
+		 rinseBtn[a].click();
+		 cropBtn[a].click();
+		 saveBtn[a].click();
+	 }
+ }
+
 var aliexpress = ['ogTitle','formatedPrice','description','attrValue','skuPropertyImagePath','ogurl'];
 //  title formatedAmount subject   attrValue    imagePath ogurl
 var aliexpress_2 = ['title','formatedAmount','subject ','attrValue','imagePath','ogurl'];
@@ -294,8 +328,8 @@ var aliexpress_2 = ['title','formatedAmount','subject ','attrValue','imagePath',
 
 	 // e('log').innerHTML += '<textarea id=text_'+ind+'>'+text+'</textarea><a href=# onclick="fetch_product(e(\'link_'+ind+'\').value,e(\'text_'+ind+'\').value);return false;" >Product Text</a><br>';
 	   
-	  e('log').innerHTML += '<a href=# onclick="rinse_ali_fields('+ind+');return false;" >Rinse</a>-'; 
-	  e('log').innerHTML += '<a href=# onclick="crop_ali_fields('+ind+');return false;" >Crop</a><br>'; 
+	  e('log').innerHTML += '<a href=# class=rinse_ali_fields onclick="rinse_ali_fields('+ind+');return false;" >Rinse</a>-'; 
+	  e('log').innerHTML += '<a href=# class=crop_ali_fields onclick="crop_ali_fields('+ind+');return false;" >Crop</a><br>'; 
 	   
 	  
 	 var fields = e('parameters').getElementsByClassName('field');
