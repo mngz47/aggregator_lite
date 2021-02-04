@@ -83,7 +83,9 @@ req.open("POST","https://www.productlists.co.za/"+url,true);
 req.send(form);
 
 req.onload = function(){
-alert(req.responseText);
+	
+	e('log').innerHTML += '<strong>sendform</strong> :: '+req.responseText+'<br>';
+	
 };
 return req.responseText;
 }
