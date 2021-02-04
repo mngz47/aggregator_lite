@@ -93,6 +93,8 @@ function rinse_ali_fields(ind){
 		ffields[0].value = '';
 	 ffields = document.getElementsByClassName('ogTitle_'+ind);  
 	        ffields[0].value = '';
+	 ffields = document.getElementsByClassName('skuPropertyImagePath_'+ind);  
+	        ffields[0].value = '';
 	
 	for(var aa=0;aa<aliexpress.length;aa++){
 			
