@@ -307,18 +307,22 @@ function getName(names,ind){
    }
 
 
+ var autoCompleteIndex = 1;
  function autoComplete(){
 
 	 var rinseBtn = e('log').getElementsByClassName('rinse_ali_fields');
 	 var cropBtn = e('log').getElementsByClassName('crop_ali_fields');
 	 
-	 for(var a=1;a<rinseBtn.length;a++){
+	 for(var a=(autoCompleteIndex>1?autoCompleteIndex:1);a<rinseBtn.length;a++){
+		 
 		 rinseBtn[a].click();
 		 cropBtn[a].click();
 		
+		 autoCompleteIndex = a;
                 var saveBtn = e('log').getElementsByClassName('saveProduct_Ali_'+a); 
 		 saveBtn[0].click();
-	 }
+		 
+	  }
  }
 
 var aliexpress = ['ogTitle','formatedPrice','description','attrValue','skuPropertyImagePath','ogurl'];
