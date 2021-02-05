@@ -77,7 +77,7 @@
 	   if(auto){
 	      	   var res = sendform_2('feature/aggregation/lite/newProduct.php',f);
 		   
-		   res.onload = fucntion(){
+		   res.onload = function(){
 			   if(res.responseText.includes('success')){
 				saveProduct_Ali(e(\'link_'+(index+1)+'\'),'+(index+1)+',auto);   
 			      }else{
