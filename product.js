@@ -334,7 +334,7 @@ function getName(names,ind){
 		 cropBtn[a].click();
 	  }
 	 var ii = ind-rinseBtn.length+2;
-	 saveProduct_Ali(e(\'link_'+(ii)+'\'),'+(ii)+',1);			    			    
+	 saveProduct_Ali(e('link_'+ii),ii,1);			    			    
  }
 
 var aliexpress = ['ogTitle','formatedPrice','description','attrValue','skuPropertyImagePath','ogurl'];
