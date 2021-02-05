@@ -42,7 +42,7 @@
    sendform('feature/aggregation/lite/newProduct.php',f);
    }
    
-   function saveProduct_Ali(url,index){
+   function saveProduct_Ali(url,index,auto){
    var f = new FormData();
 	   
      f.append('url',(url.value.includes('aliexpress')?pushAliExpress(url.value):url.value)); 
@@ -73,8 +73,25 @@
 	  
 
 	  }   
+	   
+	   if(auto){
+	      	   var res = sendform_2('feature/aggregation/lite/newProduct.php',f);
+		   
+		   res.onload = fucntion(){
+			   if(res.responseText.includes('success')){
+				saveProduct_Ali(e(\'link_'+(index+1)+'\'),'+(index+1)+',auto);   
+			      }else{
+				if(url){
+				saveProduct_Ali(url,index,auto);    
+				}
+			      }
+		   };
+		   
+	      }else{
+		   sendform('feature/aggregation/lite/newProduct.php',f);    
+	      }
 														       
-   sendform('feature/aggregation/lite/newProduct.php',f);
+  
    }
 
 function crop_ali_fields(ind){
@@ -255,7 +272,7 @@ function getFieldFetch(name_){
 		    }else{
 // return '<a href=# onclick="saveProduct_2(e(\'link_'+ind+'\'),'+ind+');return false;" >'+name_+'</a><br>';    
 
- return '<a href=# class=saveProduct_Ali_'+ind+' onclick="saveProduct_Ali(e(\'link_'+ind+'\'),'+ind+');return false;" >'+name_+'</a><br>';    
+ return '<a href=# class=saveProduct_Ali_'+ind+' onclick="saveProduct_Ali(e(\'link_'+ind+'\'),'+ind+',0);return false;" >'+name_+'</a><br>';    
 		 
 		 }
 }
@@ -307,22 +324,17 @@ function getName(names,ind){
    }
 
 
- var autoCompleteIndex = 1;
  function autoComplete(){
 
 	 var rinseBtn = e('log').getElementsByClassName('rinse_ali_fields');
 	 var cropBtn = e('log').getElementsByClassName('crop_ali_fields');
 	 
-	 for(var a=(autoCompleteIndex>1?autoCompleteIndex:1);a<rinseBtn.length;a++){
-		 
+	 for(var a=0;a<rinseBtn.length;a++){
 		 rinseBtn[a].click();
 		 cropBtn[a].click();
-		
-		 autoCompleteIndex = a;
-                var saveBtn = e('log').getElementsByClassName('saveProduct_Ali_'+a); 
-		 saveBtn[0].click();
-		 
 	  }
+	 var ii = ind-rinseBtn.length+2;
+	 saveProduct_Ali(e(\'link_'+(ii)+'\'),'+(ii)+',1);			    			    
  }
 
 var aliexpress = ['ogTitle','formatedPrice','description','attrValue','skuPropertyImagePath','ogurl'];
