@@ -1,8 +1,14 @@
 const scrape = require('index.js');
 
-function getAliProductTitle(id){
+const product;
+
+function setScrape(id){
+	product = scrape(id);
+}
+
+function getAliProductTitle(){
 	var tt;
-const product = scrape(id);
+
 product.then(res => {
   res.map => (product) {
 	tt = product.title;
@@ -11,9 +17,9 @@ product.then(res => {
 	return tt;  
 }
 
-function getAliProductDescription(id){
-	const product = scrape(id);
+function getAliProductDescription(){
 var dd;
+	
 product.then(res => { 
   res.map => (product) {
 	dd = product.description;
@@ -22,9 +28,7 @@ product.then(res => {
 	return dd;
 }
 
-function get AliProductFeedback(id){
-	
- const product = scrape(id);
+function getAliProductFeedback(){
  var cc = '';
  
 product.then(res => {
