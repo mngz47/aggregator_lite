@@ -49,29 +49,48 @@
      f.append('brand','auto');
 	f.append('date_added',getFormatedDate());   
      f.append('category',(e('category').value?e('category').value:'auto'));
-     f.append('comments','auto');  
+	  
+	   var ali_id;
+	   
+	   if(url.value.includes('aliexpress')){	
+	   // https://www.aliexpress.com/item/1005001265589988.html
+	
+		   var parts = url.value.split('/');
+		   var part_id = parts[parts.length-1];
+		   ali_id = part_id.substring(0,part_id.indexOf('.html'));
+	      }
+	   
+	   setScrape(ali_id);
+	   var feedback = getAliProductFeedback();
+	   var title = getAliProductTitle();
+	   var description = getAliProductDescription();
+	   
+     f.append('comments',(feedback?feedback:'auto'));  
 	   
 	   var fields = e('parameters').getElementsByClassName('field');
 	   for(var a=0;a<fields.length;a++){
 		   
 		   var ff = e(aliexpress[a]+'_'+index);
-		 try{
+		   var field_name = fields[a].getElementsByTagName('input')[0].value;
+		   
+		 try{ 
+			 var format;
 			 
-			 var format = field_format(fields[a].getElementsByTagName('input')[0].value,ff.value);
+			 if(field_name=='title' && title){
+			    format = title;
+			 }else if(field_name=='description' && description){
+			    format = description; 
+			 }else{
+			    format = field_format(field_name,ff.value);	     
+			 }
 			 
 		//	 alert(format);
 		  
-		     f.append(fields[a].getElementsByTagName('input')[0].value,
-			    format);
+		     f.append(field_name,format);
 		 }catch(e){
 		//	 alert('missing '+(aliexpress[a]+'_'+index));
-		  
-		     f.append(fields[a].getElementsByTagName('input')[0].value,
-			    'missing');
+		     f.append(field_name,'missing');
 		 }
-		 
-	  
-
 	  }   
 	   
 	   if(auto){
