@@ -10,9 +10,9 @@ function getAliProductTitle(){
 	var tt;
 
 product.then(res => {
-  res.map => (pp) {
+  res.map(function(pp) {
 	tt = pp.title;
-	}
+	});	
 });  
 	return tt;  
 }
