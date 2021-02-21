@@ -1,6 +1,6 @@
 const scrape = require('index.js');
 
-const product;
+var product;
 
 function setScrape(id){
 	product = scrape(id);
