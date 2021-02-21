@@ -10,8 +10,8 @@ function getAliProductTitle(){
 	var tt;
 
 product.then(res => {
-  res.map => (product) {
-	tt = product.title;
+  res.map => (pp) {
+	tt = pp.title;
 	}
 });  
 	return tt;  
@@ -21,8 +21,8 @@ function getAliProductDescription(){
 var dd;
 	
 product.then(res => { 
-  res.map => (product) {
-	dd = product.description;
+  res.map => (pp) {
+	dd = pp.description;
 	}
 });  
 	return dd;
@@ -32,19 +32,19 @@ function getAliProductFeedback(){
  var cc = '';
  
 product.then(res => {
-  res.map => (product) {
+  res.map => (ppp) {
 	
-	  var ff = product.feedback;
+	  var ff = ppp.feedback;
 	  
 	  for(var a=0;a<ff.length;a++){
 		  
-	var pp = product.feedback[a].photos;
+	var pp = ppp.feedback[a].photos;
 	  var photos = '';
 	  
 	  for(var aa=0;aa<pp.length;aa++){
 		photos+= '<img src="'+pp[aa]+'" />';
 	  }
-		cc +=  product.feedback[a].displayName+'('+product.feedback[a].rating+'<small>Star Rating</small>)<br>: '+product.feedback[a].content+' <br>'+photos+';;';
+		cc +=  ppp.feedback[a].displayName+'('+ppp.feedback[a].rating+'<small>Star Rating</small>)<br>: '+ppp.feedback[a].content+' <br>'+photos+';;';
 	  }
 	  
 	
