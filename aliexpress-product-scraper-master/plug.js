@@ -21,9 +21,9 @@ function getAliProductDescription(){
 var dd;
 	
 product.then(res => { 
-  res.map => (pp) {
+  res.map(function(pp) {
 	dd = pp.description;
-	}
+	});
 });  
 	return dd;
 }
@@ -32,7 +32,7 @@ function getAliProductFeedback(){
  var cc = '';
  
 product.then(res => {
-  res.map => (ppp) {
+  res.map(function(ppp) {
 	
 	  var ff = ppp.feedback;
 	  
@@ -48,7 +48,7 @@ product.then(res => {
 	  }
 	  
 	
-	}
+	});
 });  
 
 return cc;
