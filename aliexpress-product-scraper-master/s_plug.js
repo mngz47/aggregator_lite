@@ -17,7 +17,6 @@ product.then(rres => {
 });	
 });	
 
-// Make the app listen on port 3000
 app.listen(port, function() {
  console.log('Server listening on http://localhost:' + port);
 });
