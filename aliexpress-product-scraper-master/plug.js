@@ -3,7 +3,10 @@ var product;
 function setScrape(id){
 	var ff = new FormData();
 	ff.append('ali_id',id);
-	product = sendform(':3000',ff);
+	
+	//product = sendform(':3000',ff);
+	
+	return sendform_2(':3000',ff);
 }
 
 function getAliProductTitle(){
