@@ -1,55 +1,23 @@
 const scrape = require('index.js');
 
-var product;
+const express = require('express');
 
-function setScrape(id){
-	product = scrape(id);
-}
+const app = express();
 
-function getAliProductTitle(){
-	var tt;
+const port = 3000;
 
-product.then(res => {
-  res.map(function(pp) {
-	tt = pp.title;
-	});	
-});  
-	return tt;  
-}
-
-function getAliProductDescription(){
-var dd;
+var router = app.Router();
+router.post('/', function(req, res) {
+var sent_data = req.body;
 	
-product.then(res => { 
-  res.map(function(pp) {
-	dd = pp.description;
-	});
-});  
-	return dd;
-}
+const product = scrape(sent_data.ali_id);
 
-function getAliProductFeedback(){
- var cc = '';
- 
-product.then(res => {
-  res.map(function(ppp) {
-	
-	  var ff = ppp.feedback;
-	  
-	  for(var a=0;a<ff.length;a++){
-		  
-	var pp = ppp.feedback[a].photos;
-	  var photos = '';
-	  
-	  for(var aa=0;aa<pp.length;aa++){
-		photos+= '<img src="'+pp[aa]+'" />';
-	  }
-		cc +=  ppp.feedback[a].displayName+'('+ppp.feedback[a].rating+'<small>Star Rating</small>)<br>: '+ppp.feedback[a].content+' <br>'+photos+';;';
-	  }
-	  
-	
-	});
-});  
+product.then(rres => {
+	res.send(rres);
+});	
+});	
 
-return cc;
-}
+// Make the app listen on port 3000
+app.listen(port, function() {
+ console.log('Server listening on http://localhost:' + port);
+});
