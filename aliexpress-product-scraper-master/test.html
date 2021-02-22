@@ -12,12 +12,15 @@
 <script>
 
 function fetch(){
-
- setScrape(e('ali_id').value);
+ var res = setScrape(e('ali_id').value);
+ 
+ res.onload = function(){
+ product = res.responseText;
  e('log').innerHTML += getAliProductTitle()+'<br>';
  e('log').innerHTML += getAliProductDescription()+'<br>';
  e('log').innerHTML += getAliProductFeedback()+'<br>';
- 
+   
+ };
 }
 
 </script>
