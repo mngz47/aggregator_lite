@@ -1,9 +1,9 @@
-// const scrape = require('index.js');
-
 var product;
 
 function setScrape(id){
-	product = scrape(id);
+	var ff = new FormData();
+	ff.append('ali_id',id);
+	product = sendform(':3000',ff);
 }
 
 function getAliProductTitle(){
@@ -14,6 +14,8 @@ product.then(res => {
 	tt = pp.title;
 	});	
 });  
+	
+	
 	return tt;  
 }
 
