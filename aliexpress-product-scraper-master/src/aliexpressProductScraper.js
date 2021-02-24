@@ -38,7 +38,7 @@ function AliexpressProductScraper(productId, feedbackLimit) {
   //await 
  browser.close();
 
-  let feedbackData = [];
+  var feedbackData = [];
 
   if (data.titleModule.feedbackRating.totalValidNum > 0) {
                    //await
