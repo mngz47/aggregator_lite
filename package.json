@@ -13,8 +13,8 @@
   "author": "Mongezi",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.9.8"
-    "puppeteer": "^4.9.8"
+    "express": "^4.9.8",
+    "puppeteer": "^4.9.8",
     "cheerio": "^4.9.8"
   },
   "engines": {
