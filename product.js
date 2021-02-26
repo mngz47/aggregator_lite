@@ -50,6 +50,7 @@
 	f.append('date_added',getFormatedDate());   
      f.append('category',(e('category').value?e('category').value:'auto'));
 	  
+	   /*
 	   var ali_id;
 	   
 	   if(url.value.includes('aliexpress')){	
@@ -64,6 +65,10 @@
 	   var feedback = getAliProductFeedback();
 	   var title = getAliProductTitle();
 	   var description = getAliProductDescription();
+	   */
+	   var feedback; //= getAliProductFeedback();
+	   var title; //= getAliProductTitle();
+	   var description; //= getAliProductDescription();
 	   
      f.append('comments',(feedback?feedback:'auto'));  
 	   
@@ -208,7 +213,7 @@ function field_format(field_name,vv){
 
 function pushAliExpress(url){
 	
-	return url+'?pvid=cdb1c202-bf70-4257-8858-fbb2ad1e5554&aff_platform=portals-billboard-hp&sk=_97IYzV&aff_trace_key=97a7a0066df24930ba2ef09ca9f08915-1610873699785-06619-_97IYzV&scm=1007.29079.163715.0&terminal_id=6b52420b6f1a4edbb256dc2b77ab1c9a&tmLog=new_Detail';
+	return url+'?pvid=d11f4bd8-8ba4-4699-baa2-4e570c081f28&aff_platform=portals-billboard-hp&sk=_9HkB9v&aff_trace_key=98f59ff8a4544d64a91808e46477cb33-1608425477476-09683-_9HkB9v&scm=1007.29079.163715.0&terminal_id=6b52420b6f1a4edbb256dc2b77ab1c9a&tmLog=new_Detail?spm=a2g0o.detail.0.0.5b6622c1wlhHj0&gps-id=pcDetailBottomMoreThisSeller&scm=1007.13339.169870.0&scm_id=1007.13339.169870.0&scm-url=1007.13339.169870.0&pvid=5f65e4df-f7af-45e1-8398-f3d0396c1c7e&_t=gps-id:pcDetailBottomMoreThisSeller,scm-url:1007.13339.169870.0,pvid:5f65e4df-f7af-45e1-8398-f3d0396c1c7e,tpp_buckets:668%230%23131923%230_668%23888%233325%2318_668%232846%238109%23289_668%232717%237561%23370_668%231000022185%231000066059%230_668%233468%2315615%23690';
 	
 }
 
