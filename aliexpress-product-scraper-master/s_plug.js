@@ -4,7 +4,7 @@ const express = require('express');
 
 const app = express();
 
-const port = 3000;
+const port = 80;
 
 var router = app.Router();
 router.post('/', function(req, res) {
@@ -16,6 +16,10 @@ product.then(rres => {
 	res.send(rres);
 });	
 });	
+
+router.get('/', function(req, res) {
+	res.sendFile('test.html');
+});
 
 app.listen(port, function() {
  console.log('Server listening on http://localhost:' + port);
