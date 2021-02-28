@@ -2,9 +2,9 @@
   "name": "agg-lite",
   "version": "1.0.0",
   "description": "This example is so cool.",
-  "main": "s_plug.js",
+  "main": "aliexpress-product-scraper-master/s_plug.js",
   "scripts": {
-    "start": "node s_plug.js"
+    "start": "node aliexpress-product-scraper-master/s_plug.js"
   },
   "keywords": [
     "agg-lite",
