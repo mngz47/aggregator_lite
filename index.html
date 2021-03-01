@@ -100,6 +100,34 @@ e('parameters').innerHTML +=
 <div style="border:2px solid red;padding:10px;"  id=log ></div>
 <script>
  
+	//plug tech
+	/*
+	auto fill
+	
+	url
+	https://www.aliexpress.com/wholesale?trafficChannel=main&d=y&CatId=0&SearchText=home+garden+tools&ltype=wholesale&SortType=default&page=4
+	category
+	
+	start fetch process
+	buffer 4
+	stop
+	auto complete
+	clear log
+	*/
+
+var plug_page = 0;
+const urlParams = new URLSearchParams(window.location.search);
+const category = urlParams.get('category');
+	
+	if(category){
+	   e('url').value = 'https://www.aliexpress.com/wholesale?trafficChannel=main&d=y&CatId=0&SearchText='+category.replace(' ','+')+'ltype=wholesale&SortType=default';
+	   e('category').value = category;
+		
+	   }
+	
+	//plug tech
+	
+	
  function aliLayerURL(text){
   
   // "productDetailUrl":"//www.aliexpress.com/item/1005001887908452.html
