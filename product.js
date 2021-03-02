@@ -43,8 +43,18 @@
    }
    
    function saveProduct_Ali(url,index,auto){
-   var f = new FormData();
 	   
+	   if(url && url.value){
+	      
+		  
+	var f = new FormData();
+      f.append('aff_link',url.value);
+    var res = sendform_2('feature/aggregation/lite/is_duplicate.php',f);
+	   
+	   res.onload = function(){
+		   if(parseInt(res.responseText)!=-1){ //check if the product is a duplicate
+		      
+	f = new FormData();
      f.append('url',(url.value.includes('aliexpress')?pushAliExpress(url.value):url.value)); 
      f.append('brand','auto');
 	f.append('date_added',getFormatedDate());   
@@ -111,7 +121,7 @@
 				   e('log').innerHTML = '';
 			   }
 			   
-		      var res = sendform_2('feature/aggregation/lite/newProduct.php',f);
+		     res = sendform_2('feature/aggregation/lite/newProduct.php',f);
 		   
 		   res.onload = function(){
 			   if(res.responseText.includes('success')){
@@ -128,9 +138,17 @@
 		      }
 	      }else{
 		   sendform('feature/aggregation/lite/newProduct.php',f);    
+	      }   
+			   
+		  }else{ //  if duplicate is found move to next product
+			saveProduct_Ali(e('link_'+(index+1)),(index+1),auto);     
+		  }
+	   };
+		   
+	      }else{ //end of layer_url
+	      	plug_page+=1;
+		window.open("https://www.productlists.co.za/feature/aggregation/lite/index.html?category="+category+"&page="+plug_page); 
 	      }
-														       
-  
    }
 
 function crop_ali_fields(ind){
