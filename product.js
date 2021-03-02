@@ -98,8 +98,16 @@
 		 }
 	  }   
 	   
+	   //layer_urls
 	   if(auto){
-	      	   var res = sendform_2('feature/aggregation/lite/newProduct.php',f);
+		   if(index<layer_urls.length){
+			   
+			   if(index%4==0){
+				   autoComplete();
+				   e('log').innerHTML = '';
+			   }
+			   
+		      var res = sendform_2('feature/aggregation/lite/newProduct.php',f);
 		   
 		   res.onload = function(){
 			   if(res.responseText.includes('success')){
@@ -110,7 +118,10 @@
 				}
 			      }
 		   };
-		   
+		      }else{
+			      plug_page+=1;
+			     window.open("https://www.productlists.co.za/feature/aggregation/lite/index.html?category="+category+"&page="+plug_page); 
+		      }
 	      }else{
 		   sendform('feature/aggregation/lite/newProduct.php',f);    
 	      }
