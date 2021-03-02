@@ -49,7 +49,11 @@
      f.append('brand','auto');
 	f.append('date_added',getFormatedDate());   
      f.append('category',(e('category').value?e('category').value:'auto'));
-	  
+	
+	   if(category){
+	      f.append('plug','positive');
+	      }
+	   
 	   /*
 	   var ali_id;
 	   
