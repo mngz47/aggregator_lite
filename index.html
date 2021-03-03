@@ -100,34 +100,6 @@ e('parameters').innerHTML +=
 <div style="border:2px solid red;padding:10px;"  id=log ></div>
 <script>
  
-	//plug tech
-	/*
-	auto fill
-	
-	url
-	https://www.aliexpress.com/wholesale?trafficChannel=main&d=y&CatId=0&SearchText=home+garden+tools&ltype=wholesale&SortType=default&page=4
-	category
-	
-	start fetch process
-	buffer 4
-	stop
-	auto complete
-	clear log
-	*/
-
-const urlParams = new URLSearchParams(window.location.search);
-const category = urlParams.get('category');
-const plug_page = urlParams.get('page');
-	
-	if(category){
-	   e('url').value = 'https://www.aliexpress.com/wholesale?trafficChannel=main&d=y&CatId=0&SearchText='+category.replace(' ','+')+'ltype=wholesale&SortType=default&page='+plug_page;
-	   e('category').value = category;
-	   getUrlText((layer_urls.length>0?layer_urls[ind]:e('url').value));
-	   }
-	
-	//plug tech
-	
-	
  function aliLayerURL(text){
   
   // "productDetailUrl":"//www.aliexpress.com/item/1005001887908452.html
@@ -265,6 +237,34 @@ if(!stop && ind<layer_urls.length){
    }
 };
 }
+
+	//plug tech
+	/*
+	auto fill
+	
+	url
+	https://www.aliexpress.com/wholesale?trafficChannel=main&d=y&CatId=0&SearchText=home+garden+tools&ltype=wholesale&SortType=default&page=4
+	category
+	
+	start fetch process
+	buffer 4
+	stop
+	auto complete
+	clear log
+	*/
+
+const urlParams = new URLSearchParams(window.location.search);
+const category = urlParams.get('category');
+const plug_page = urlParams.get('page');
+	
+	if(category){
+	   e('url').value = 'https://www.aliexpress.com/wholesale?trafficChannel=main&d=y&CatId=0&SearchText='+category.replace(' ','+')+'ltype=wholesale&SortType=default&page='+plug_page;
+	   e('category').value = category;
+	   getUrlText((layer_urls.length>0?layer_urls[ind]:e('url').value));
+	   }
+	
+	//plug tech
+	
 </script>
 </body>
 </html>
