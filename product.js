@@ -113,13 +113,7 @@
 	  }   
 	   
 	   //layer_urls
-		if(index%4==0 && index!=0){	
-			
-			e('log').innerHTML = '';
-			ind+=1;
-			getUrlText(layer_urls[ind]);   
-			   
-		}else if(auto){
+		 if(auto){
 		   if(index<layer_urls.length){
 			    
 		     res = sendform_2('feature/aggregation/lite/newProduct.php',f);
@@ -146,7 +140,12 @@
 	   };
 		   
 	      }else{ //end of layer_url
-		new_window("https://www.productlists.co.za/feature/aggregation/lite/index.html?category="+category+"&page="+(plug_page+1));
+		
+		        e('log').innerHTML = '';
+			ind+=1;
+			getUrlText(layer_urls[ind]);  
+		      
+		   //   new_window("https://www.productlists.co.za/feature/aggregation/lite/index.html?category="+category+"&page="+(plug_page+1));
 	      }
    }
 
