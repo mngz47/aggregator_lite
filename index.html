@@ -212,7 +212,9 @@ if(!stop && ind<layer_urls.length){
  fetch_product(layer_urls[ind],text);
  
  }else{
+	 
  fetch_Ali_product_2(layer_urls[ind],text);
+ 
  }
 
  
@@ -227,13 +229,12 @@ if(!stop && ind<layer_urls.length){
         sech();
     }
     }
- 
- 
- ind+=1;
- 
- getUrlText(layer_urls[ind]);
- 
- 
+ 			  if(ind%4==0){
+				   autoComplete();
+			   }else{
+				 ind+=1;
+ 				 getUrlText(layer_urls[ind]);   
+			   }
    }
 };
 }
