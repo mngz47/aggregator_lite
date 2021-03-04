@@ -178,6 +178,8 @@ function crop_ali_fields(ind){
 function rinse_ali_fields(ind){
 	
 	var ffields = document.getElementsByClassName('description_'+ind);  
+	
+	if(ffields){
 		ffields[0].value = '';
 	 ffields = document.getElementsByClassName('ogTitle_'+ind);  
 	        ffields[0].value = '';
@@ -237,7 +239,7 @@ function rinse_ali_fields(ind){
 	
          ffields = document.getElementsByClassName('description_'+ind);  
 		ffields[0].value = ffields[0].value.replace('- AliExpress"}','');
-
+}
 }
 
 function field_format(field_name,vv){
