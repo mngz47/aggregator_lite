@@ -116,6 +116,12 @@
 	   if(auto){
 		   if(index<layer_urls.length){
 			   
+			  if(index%4==0){
+				   e('log').innerHTML = '';
+				   ind+=1;
+				   getUrlText(layer_urls[ind]);   
+			   } 
+			   
 		     res = sendform_2('feature/aggregation/lite/newProduct.php',f);
 		   
 		   res.onload = function(){
@@ -129,7 +135,7 @@
 		   };
 		      }else{
 			      plug_page+=1;
-			     window.open("https://www.productlists.co.za/feature/aggregation/lite/index.html?category="+category+"&page="+plug_page); 
+			      new_window("https://www.productlists.co.za/feature/aggregation/lite/index.html?category="+category+"&page="+plug_page);
 		      }
 	      }else{
 		   sendform('feature/aggregation/lite/newProduct.php',f);    
@@ -142,9 +148,22 @@
 		   
 	      }else{ //end of layer_url
 	      	plug_page+=1;
-		window.open("https://www.productlists.co.za/feature/aggregation/lite/index.html?category="+category+"&page="+plug_page); 
+		new_window("https://www.productlists.co.za/feature/aggregation/lite/index.html?category="+category+"&page="+plug_page);
 	      }
    }
+
+
+function new_window(url){
+	var ww = window.open(url);
+      if(!ww){
+      var link = ne("a");
+      link.target="blank";
+      link.href=url;
+      link.style.display="none";
+      document.body.appendChild(link);
+      link.click();
+      }
+}
 
 function crop_ali_fields(ind){
 	for(var aa=0;aa<aliexpress.length;aa++){	
