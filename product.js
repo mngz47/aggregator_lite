@@ -179,7 +179,7 @@ function rinse_ali_fields(ind){
 	
 	var ffields = document.getElementsByClassName('description_'+ind);  
 	
-	if(ffields){
+	if(ffields && ffields[0]){
 		ffields[0].value = '';
 	 ffields = document.getElementsByClassName('ogTitle_'+ind);  
 	        ffields[0].value = '';
