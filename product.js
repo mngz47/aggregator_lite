@@ -116,11 +116,6 @@
 	   if(auto){
 		   if(index<layer_urls.length){
 			   
-			   if(index%4==0){
-				   autoComplete();
-				   e('log').innerHTML = '';
-			   }
-			   
 		     res = sendform_2('feature/aggregation/lite/newProduct.php',f);
 		   
 		   res.onload = function(){
