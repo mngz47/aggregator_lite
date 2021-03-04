@@ -113,15 +113,15 @@
 	  }   
 	   
 	   //layer_urls
-	   if(auto){
+		if(index%4==0 && index!=0){	
+			
+			e('log').innerHTML = '';
+			ind+=1;
+			getUrlText(layer_urls[ind]);   
+			   
+		}else if(auto){
 		   if(index<layer_urls.length){
-			   
-			  if(index%4==0){
-				   e('log').innerHTML = '';
-				   ind+=1;
-				   getUrlText(layer_urls[ind]);   
-			   } 
-			   
+			    
 		     res = sendform_2('feature/aggregation/lite/newProduct.php',f);
 		   
 		   res.onload = function(){
