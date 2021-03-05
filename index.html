@@ -259,7 +259,7 @@ const category = urlParams.get('category');
 const plug_page = urlParams.get('page');
 	
 	if(category){
-	   e('url').value = 'https://www.aliexpress.com/wholesale?trafficChannel=main&d=y&CatId=0&SearchText='+category.replace(' ','+')+'&ltype=wholesale&SortType=default&page='+plug_page;
+	   e('url').value = 'https://www.aliexpress.com/wholesale?trafficChannel=main&d=y&CatId=0&SearchText='+category.replace(' ','+').replace(',','')+'&ltype=wholesale&SortType=default&page='+plug_page;
 	   e('category').value = category;
 	   getUrlText((layer_urls.length>0?layer_urls[ind]:e('url').value));
 	   }
