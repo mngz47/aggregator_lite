@@ -52,7 +52,7 @@
     var res = sendform_2('feature/aggregation/lite/is_duplicate.php',f);
 	   
 	   res.onload = function(){
-		   if(parseInt(res.responseText)!=-1){ //check if the product is a duplicate
+		   if(parseInt(res.responseText)==-1){ //check if the product is a duplicate
 		      
 	f = new FormData();
      f.append('url',(url.value.includes('aliexpress')?pushAliExpress(url.value):url.value)); 
