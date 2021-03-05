@@ -135,18 +135,21 @@
 	      }   
 			   
 		  }else{ //  if duplicate is found move to next product
+			e('log').innerHTML += 'duplicate('+url.value+')<br>';
 			saveProduct_Ali(e('link_'+(index+1)),(index+1),auto);     
 		  }
 	   };
 		   
 	      }else{ //end of layer_url
 		
+		       if(index<layer_urls.length){
 		        e('log').innerHTML = '';
 			ind+=1;
 			getUrlText(layer_urls[ind]);  
-		      
-		   //   new_window("https://www.productlists.co.za/feature/aggregation/lite/index.html?category="+category+"&page="+(plug_page+1));
-	      }
+		       }else{
+			 new_window("https://www.productlists.co.za/feature/aggregation/lite/index.html?category="+category+"&page="+(plug_page+1));   
+		       }    
+	  }
    }
 
 
