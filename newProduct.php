@@ -24,7 +24,8 @@
   ){
  
 	
-$conn = new mysqli('localhost','produc10_mng','mngzpass636','produc10_productlists');
+$conn = new mysqli('d6rii63wp64rsfb5.cbetxkdyhwsb.us-east-1.rds.amazonaws.com','muce70z5ukkwpv5d','bqvn5jp04wlmxu64','zyo1oodysira7ro5');
+	  
 $sql = 'SELECT COUNT(id) AS size,id FROM product';
 $result3 = $conn->query($sql);
 $row3 = $result3->fetch_assoc();
