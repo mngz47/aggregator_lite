@@ -18,7 +18,7 @@
 	   for(var a=0;a<fields.length;a++){
 		   f.append(fields[a].getElementsByTagName('input')[0].value,values[a]);
 	   }
-   sendform('feature/aggregation/lite/newProduct.php',f);
+   sendform('newProduct.php',f);
    }
 
 
@@ -39,7 +39,7 @@
 
 	  }   
 														       
-   sendform('feature/aggregation/lite/newProduct.php',f);
+   sendform('newProduct.php',f);
    }
    
    function saveProduct_Ali(url,index,auto){
@@ -49,7 +49,7 @@
 		  
 	var f = new FormData();
       f.append('aff_link',url.value);
-    var res = sendform_2('feature/aggregation/lite/is_duplicate.php',f);
+    var res = sendform_2('is_duplicate.php',f);
 	   
 	   res.onload = function(){
 		   if(parseInt(res.responseText)==-1){ //check if the product is a duplicate
@@ -106,6 +106,14 @@
 		//	 alert(format);
 		  
 		     f.append(field_name,format);
+			 
+			 
+			 //destination fields
+			 //f.append("d_host",e("d_host").value);
+			 //f.append("d_user",e("d_user").value);
+			 //f.append("d_pass",e("d_pass").value);
+			 //f.append("d_database",e("d_database").value);
+			 
 		 }catch(e){
 		//	 alert('missing '+(aliexpress[a]+'_'+index));
 		     f.append(field_name,'missing');
@@ -116,7 +124,7 @@
 		 if(auto){
 		   if(index<layer_urls.length){
 			    
-		     res = sendform_2('feature/aggregation/lite/newProduct.php',f);
+		     res = sendform_2('newProduct.php',f);
 		   
 		   res.onload = function(){
 			   if(res.responseText.includes('success')){
@@ -128,10 +136,10 @@
 			      }
 		   };
 		      }else{
-			      new_window("https://www.productlists.co.za/feature/aggregation/lite/index.html?category="+category+"&page="+(plug_page+1));
+			      new_window(HOME_+"/index.html?category="+category+"&page="+(plug_page+1));
 		      }
 	      }else{
-		   sendform('feature/aggregation/lite/newProduct.php',f);    
+		   sendform('newProduct.php',f);    
 	      }   
 			   
 		  }else{ //  if duplicate is found move to next product
@@ -147,11 +155,13 @@
 			ind+=1;
 			getUrlText(layer_urls[ind]);  
 		       }else{
-			 new_window("https://www.productlists.co.za/feature/aggregation/lite/index.html?category="+category+"&page="+(plug_page+1));   
+			 new_window(HOME_+"/index.html?category="+category+"&page="+(plug_page+1));   
 		       }    
 	  }
    }
 
+
+var HOME_ = "https://"+window.location.hostname;
 
 function new_window(url){
 	var ww = window.open(url);
@@ -281,7 +291,7 @@ function pushAliExpress(url){
    f.append('description',dd.value);
    f.append('comments',(cc?cc.value:'auto'));
    
-   sendform('feature/aggregation/lite/newProduct.php',f);
+   sendform('newProduct.php',f);
    }
    
    function clearProduct(){
