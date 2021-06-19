@@ -93,9 +93,14 @@ e('parameters').innerHTML +=
 
 
 </script>
-<br><br>	
-<span>DESTINATION</span>
-<input type=text id=destination value="https://product--lists.herokuapp.com/services/sell/products/new_product.php" />	
+<br><br>
+	<div>
+<strong>DESTINATION</strong>
+		<span>d_host</span><input type=text id=d_host /><br>
+		<span>d_user</span><input type=text id=d_user /><br>
+		<span>d_pass</span><input type=text id=d_pass /><br>
+		<span>d_database</span><input type=text id=d_database />
+	</div>
 <br><br>
 <strong>LOG</strong>-<a href=# onclick="e('log').innerHTML='';" >clear</a>-
 <input type=checkbox id=log_auto_clear />auto clear - 
@@ -265,6 +270,13 @@ const plug_page = urlParams.get('page');
 	   e('url').value = 'https://www.aliexpress.com/wholesale?trafficChannel=main&d=y&CatId=0&SearchText='+category.replace(' ','+').replace(',','')+'&ltype=wholesale&SortType=default&page='+plug_page;
 	   e('category').value = category;
 	   getUrlText((layer_urls.length>0?layer_urls[ind]:e('url').value));
+		
+		//set destination
+		//e('d_host').value = '';
+		//e('d_user').value = '';
+		//e('d_pass').value = '';
+		//e('d_database').value = '';
+		
 	   }
 	
 	//plug tech
