@@ -195,7 +195,7 @@ function getUrlText(url){
 var f = new FormData();
 f.append('URL',url);
 
-var res = sendform_2('feature/aggregation/lite/gettext.php',f);
+var res = sendform_2('gettext.php',f);
 res.onload = function(){
 var text = res.responseText;
   
