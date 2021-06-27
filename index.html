@@ -198,8 +198,8 @@ f.append('URL',url);
 var res = sendform_2('gettext.php',f);
 res.onload = function(){
 var text = res.responseText;
-  
-	alert(text);
+	
+  e('log').innerHTML += '<textarea>'+text+'</textarea>';
 	
  if(e('url').value.includes('aliexpress') && !e('url').value.includes('item')){
      aliLayerURL(text);
