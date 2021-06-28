@@ -66,10 +66,12 @@ if($result3){
 		newProductReview($conn,$newId,$cc[$a]);
 	}
 	
+
+	/*
+	
 	$sql = 'INSERT INTO feeling (id,product_id,love,angry,happy) VALUES (0,'.$newId.',0,0,0)';
     $result3 = $conn->query($sql);   
-    
-	/*
+	
 	track new data items _ requires seperate database
 	use main database
 	get rid of some old tables
