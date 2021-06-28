@@ -94,13 +94,13 @@ e('parameters').innerHTML +=
 
 </script>
 <br><br>
-	<div>
-<strong>DESTINATION</strong>
+	<fieldset>
+<legend>DESTINATION</legend>
 		<span>d_host</span><input type=text id=d_host /><br>
 		<span>d_user</span><input type=text id=d_user /><br>
 		<span>d_pass</span><input type=text id=d_pass /><br>
 		<span>d_database</span><input type=text id=d_database />
-	</div>
+	</fieldset>
 <br><br>
 <strong>LOG</strong>-<a href=# onclick="e('log').innerHTML='';" >clear</a>-
 <input type=checkbox id=log_auto_clear />auto clear - 
@@ -148,7 +148,7 @@ e('parameters').innerHTML +=
          }else if(attr[aa].toLowerCase().includes('productId'.toLowerCase())){//trace json data for product urls using productId attribute
 		     
 		      var vvvv = attr[aa].split(':')[1];
-		      layer_urls[layer_urls.length] = '//www.aliexpress.com/item/'+vvvv+'.html';
+		      layer_urls[layer_urls.length] = 'https://www.aliexpress.com/item/'+vvvv+'.html';
 		         
 	     }
         }
