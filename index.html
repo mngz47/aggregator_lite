@@ -127,7 +127,7 @@ e('parameters').innerHTML +=
         var attr = data.split(',');
         for(var aa=0;aa<attr.length;aa++){
       
-         if(attr[aa].toLowerCase().includes('productDetailUrl'.toLowerCase()) ){
+         if(attr[aa].toLowerCase().includes('productDetailUrl'.toLowerCase()) ){ //trace json data for product urls using productDetailUrl attribute
           		
 		 var vvvv = attr[aa].split(':')[1];
 		 var vvv = attr[aa].split(':')[2];
@@ -143,7 +143,12 @@ e('parameters').innerHTML +=
 				   
                    layer_urls[layer_urls.length] = vv;
               
-             }
+             }else if(attr[aa].toLowerCase().includes('productId'.toLowerCase())){//trace json data for product urls using productId attribute
+		     
+		      var vvvv = attr[aa].split(':')[1];
+		      layer_urls[layer_urls.length] = '//www.aliexpress.com/item/'+vvvv+'.html';
+		         
+	     }
           
          }
         }
