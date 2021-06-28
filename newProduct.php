@@ -41,8 +41,6 @@ if($row3['size']==0){
     //  (parameters,refs,specification,category,category_type)
     //  (measurement,shipment_cost)
    
-	session_start();
-	
 	$description = str_replace(";;","",$_POST['description']);
 	
 $sql = 'INSERT INTO product (id,title,specification,quantity,brand,gender,health_table,price,date_added,company_id,discount,parameters,category,refs,shipment_cost,draft)'.
