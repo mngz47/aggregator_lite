@@ -52,7 +52,9 @@ $result3 = $conn->query(str_replace("'","",$sql));
 
 if($result3){ 
     
-	$conn = new mysqli('localhost','produc10_mng','mngzpass636','produc10_productlists');
+	
+	$conn = new mysqli('d6rii63wp64rsfb5.cbetxkdyhwsb.us-east-1.rds.amazonaws.com','muce70z5ukkwpv5d','bqvn5jp04wlmxu64','zyo1oodysira7ro5');
+
     
 	$ii = explode(';;',$_POST['images']);
 	for($a=0;$a<count($ii);$a++){
@@ -67,19 +69,28 @@ if($result3){
 	$sql = 'INSERT INTO feeling (id,product_id,love,angry,happy) VALUES (0,'.$newId.',0,0,0)';
     $result3 = $conn->query($sql);   
     
+	/*
+	track new data items _ requires seperate database
+	use main database
+	get rid of some old tables
     if($result3){
+	    
 $conn = new mysqli('localhost','produc10_mng','mngzpass636','produc10_aggregation');
+	    
 $sql = 'UPDATE pool_ SET product_id='.$newId.' WHERE id='.$row['id'];
 $result3 = $conn->query($sql);
  echo '('.($result3?'success':'failure').','.$newId.')</br>';  
  
         }
+	*/
+	
         }else{
             echo mysqli_error($conn);
             echo '<br>--'.$sql;
         }    
     
-}
+	
+	} 
 }else{
 	echo 
   $_POST['url']  +';;'+
