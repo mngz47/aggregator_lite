@@ -1,5 +1,6 @@
 <?php
-  
+session_start();  
+
   function newProductImage($conn,$newId,$url){
         $sql = 'INSERT INTO product_image (id,product_id,url) VALUES (0,'.$newId.',"'.$url.'")';
        $result = $conn->query($sql); 
