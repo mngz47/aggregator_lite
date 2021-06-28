@@ -143,14 +143,14 @@ e('parameters').innerHTML +=
 				   
                    layer_urls[layer_urls.length] = vv;
               
-             }else if(attr[aa].toLowerCase().includes('productId'.toLowerCase())){//trace json data for product urls using productId attribute
+             	}
+          
+         }else if(attr[aa].toLowerCase().includes('productId'.toLowerCase())){//trace json data for product urls using productId attribute
 		     
 		      var vvvv = attr[aa].split(':')[1];
 		      layer_urls[layer_urls.length] = '//www.aliexpress.com/item/'+vvvv+'.html';
 		         
 	     }
-          
-         }
         }
      }
    }
