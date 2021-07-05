@@ -10,6 +10,9 @@
    }
    
    function saveProduct(url){
+	   rinse_ali_fields(ind); 
+	   crop_ali_fields(ind);
+	   
    var f = new FormData();
 	    f.append('url',(url.includes('aliexpress')?pushAliExpress(url):url));
 	   
@@ -488,9 +491,6 @@ var aliexpress_2 = ['title','formatedAmount','subject ','attrValue','imagePath',
 	  
 	if(values.length >= fields.length){
 	  //showProduct();
-		
-		rinse_ali_fields(ind); 
-	 	crop_ali_fields(ind);
 		
 	  saveProduct(url);
 	  clearProduct();
