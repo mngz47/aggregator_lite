@@ -43,6 +43,8 @@
    }
    
    function saveProduct_Ali(url,index,auto){
+	rinse_ali_fields(index); 
+	 crop_ali_fields(index);
 	   
 	   if(url && url.value){
 	      
@@ -410,12 +412,12 @@ function getName(names,ind){
  function autoComplete(){
 
 	 var rinseBtn = e('log').getElementsByClassName('rinse_ali_fields');
-	 var cropBtn = e('log').getElementsByClassName('crop_ali_fields');
+	/* var cropBtn = e('log').getElementsByClassName('crop_ali_fields');
 	 
 	 for(var a=0;a<rinseBtn.length;a++){
 		 rinseBtn[a].click();
 		 cropBtn[a].click();
-	  }
+	  } */
 	 var ii = ind-rinseBtn.length+2;
 	 saveProduct_Ali(e('link_'+ii),ii,1);			    			    
  }
