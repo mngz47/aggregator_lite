@@ -10,8 +10,6 @@
    }
    
    function saveProduct(url){
-	   rinse_ali_fields(ind); 
-	 crop_ali_fields(ind);
    var f = new FormData();
 	    f.append('url',(url.includes('aliexpress')?pushAliExpress(url):url));
 	   
@@ -145,6 +143,7 @@
 			      new_window(HOME_+"/index.html?category="+category+"&page="+(plug_page+1));
 		      }
 	      }else{
+		      
 		   sendform('newProduct.php',f);    
 	      }   
 			   
@@ -489,6 +488,10 @@ var aliexpress_2 = ['title','formatedAmount','subject ','attrValue','imagePath',
 	  
 	if(values.length >= fields.length){
 	  //showProduct();
+		
+		rinse_ali_fields(ind); 
+	 	crop_ali_fields(ind);
+		
 	  saveProduct(url);
 	  clearProduct();
 	  }else{
