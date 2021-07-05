@@ -15,6 +15,17 @@
 	   
    var f = new FormData();
 	    f.append('url',(url.includes('aliexpress')?pushAliExpress(url):url));
+	    f.append('brand','auto');
+	f.append('date_added',getFormatedDate());   
+     f.append('category',(e('category').value?e('category').value:'auto'));
+	if(category){
+	      f.append('plug','positive');
+	      }
+	   var feedback; //= getAliProductFeedback();
+	   var title; //= getAliProductTitle();
+	   var description; //= getAliProductDescription();
+	   
+     f.append('comments',(feedback?feedback:'auto'));  
 	   
    var fields = e('parameters').getElementsByClassName('field');
 	   
