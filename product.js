@@ -10,6 +10,8 @@
    }
    
    function saveProduct(url){
+	   rinse_ali_fields(ind); 
+	 crop_ali_fields(ind);
    var f = new FormData();
 	    f.append('url',(url.includes('aliexpress')?pushAliExpress(url):url));
 	   
