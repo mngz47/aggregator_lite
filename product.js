@@ -24,6 +24,8 @@
 
    function saveProduct_2(url,index){
    var f = new FormData();
+	   rinse_ali_fields(index); 
+	 crop_ali_fields(index);
 	   
      f.append('url',(url.value.includes('aliexpress')?pushAliExpress(url.value):url.value)); 
      f.append('brand','auto');
