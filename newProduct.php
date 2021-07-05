@@ -93,14 +93,14 @@ $result3 = $conn->query($sql);
 	} 
 }else{
 	echo 
-  $_POST['url']  .';;'.
-  $_POST['heading']  .';;'.
-   $_POST['price']  .';;'.
-   $_POST['brand']  .';;'.
-   $_POST['category']  .';;'.
-   $_POST['images']  .';;'.
-   $_POST['description']  .';;'.
-   $_POST['comments']; 
+  '<br>URL >> '.$_POST['url']  .';;'.
+  '<br>HEADING >> '.$_POST['heading']  .';;'.
+   '<br>PRICE >> '.$_POST['price']  .';;'.
+   '<br>BRAND >> '.$_POST['brand']  .';;'.
+   '<br>CATEGORY >> '.$_POST['category']  .';;'.
+   '<br>IMAGES >> '.$_POST['images']  .';;'.
+   '<br>DESCRIPTION >> '.$_POST['description']  .';;'.
+   '<br>COMMENTS >> '.$_POST['comments']; 
 		
   }
 
