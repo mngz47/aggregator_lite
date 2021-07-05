@@ -13,6 +13,13 @@
 	   rinse_ali_fields(ind); 
 	   crop_ali_fields(ind);
 	   
+	   var f = new FormData();
+      f.append('aff_link',url);
+    var res = sendform_2('is_duplicate.php',f);
+	   
+	   res.onload = function(){
+		   if(parseInt(res.responseText)==-1){ //check if the product is a duplicate
+	   
    var f = new FormData();
 	    f.append('url',(url.includes('aliexpress')?pushAliExpress(url):url));
 	    f.append('brand','auto');
@@ -53,6 +60,17 @@
 		   
 	   }
    sendform('newProduct.php',f);
+	   
+	    }else{ //  if duplicate is found skip product
+			e('log').innerHTML += '<br>duplicate('+url.value+')<br>';
+		  }
+	   };
+	   
+	   
+	    if(ind<layer_urls.length){ //change frame when end of products is reached
+		}else{
+	new_window(HOME_+"/index.html?category="+category+"&page="+(plug_page+1));   
+	      }  
    }
 
 
@@ -186,6 +204,7 @@
 			saveProduct_Ali(e('link_'+(index+1)),(index+1),auto);     
 		  }
 	   };
+		  
 		   
 	      }else{ //end of layer_url
 		
