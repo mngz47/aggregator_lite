@@ -19,7 +19,27 @@
    var fields = e('parameters').getElementsByClassName('field');
 	   
 	   for(var a=0;a<fields.length;a++){
-		   f.append(fields[a].getElementsByTagName('input')[0].value,values[a]);
+		   
+		   
+		   var ff = e(aliexpress[a]+'_'+ind);
+		   var field_name = fields[a].getElementsByTagName('input')[0].value;
+		   
+		 try{ 
+			 var format;
+			 
+			 if(field_name=='title' && title){
+			    format = title;
+			 }else if(field_name=='description' && description){
+			    format = description; 
+			 }else{
+			    format = field_format(field_name,ff.value);	     
+			 }
+		  
+		     f.append(field_name,format);
+		 }catch(e){
+		     f.append(field_name,'missing');
+		 }
+		   
 	   }
    sendform('newProduct.php',f);
    }
