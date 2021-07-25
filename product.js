@@ -22,6 +22,7 @@
 	   
    var f = new FormData();
 	    f.append('url',(url.includes('aliexpress')?pushAliExpress(url):url));
+			    f.append('productId',url.value.subtring(url.value.indexOf("item/")+5,-4));
 	    f.append('brand','auto');
 	f.append('date_added',getFormatedDate());   
      f.append('category',(e('category').value?e('category').value:'auto'));
@@ -80,6 +81,8 @@
 	 crop_ali_fields(index);
 	   
      f.append('url',(url.value.includes('aliexpress')?pushAliExpress(url.value):url.value)); 
+	 //  f.append('ali_productId',url.value.subtring(url.value.indexOf("item/")+5,-4));
+	 //  f.append('ali_companyId',);
      f.append('brand','auto');
 	   f.append('date_added',getFormatedDate());   
      f.append('category',(e('category').value?e('category').value:'auto'));
@@ -478,7 +481,7 @@ function getName(names,ind){
 	 saveProduct_Ali(e('link_'+ii),ii,1);			    			    
  }
 
-var aliexpress = ['ogTitle','formatedPrice','description','attrValue','skuPropertyImagePath','ogurl'];
+var aliexpress = ['ogTitle','formatedPrice','description','attrValue','skuPropertyImagePath','ogurl','companyId'];
 //  title formatedAmount subject   attrValue    imagePath ogurl
 var aliexpress_2 = ['title','formatedAmount','subject ','attrValue','imagePath','ogurl'];
 
