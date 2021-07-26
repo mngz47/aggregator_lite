@@ -490,7 +490,7 @@ function getName(names,ind){
 
 var aliexpress = ['ogTitle','formatedPrice','description','attrValue','skuPropertyImagePath','ogurl','companyId'];
 //  title formatedAmount subject   attrValue    imagePath ogurl
-var aliexpress_2 = ['title','formatedAmount','subject ','attrValue','imagePath','ogurl'];
+var aliexpress_2 = ['title','formatedAmount','subject ','attrValue','imagePath','ogurl','companyId'];
 
    function fetch_Ali_product_2(url,text){
 	  
@@ -528,7 +528,6 @@ var aliexpress_2 = ['title','formatedAmount','subject ','attrValue','imagePath',
 	//attr[aa].split(':')[0].substring(1,-1);
 	//attr[aa].includes(aliexpress[a])
 	
-	if(attr[aa])
 	if(attr[aa].toLowerCase().includes(aliexpress[a].toLowerCase()) || attr[aa].toLowerCase().includes(aliexpress_2[a].toLowerCase())){
 			
 	//alert(attr[aa]);
