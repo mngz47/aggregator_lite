@@ -43,7 +43,7 @@
 		   var ff = e(aliexpress[a]+'_'+ind);
 		   var field_name = fields[a].getElementsByTagName('input')[0].value;
 		   
-		 try{ 
+		// try{ 
 			 var format;
 			 
 			 if(field_name=='title' && title){
@@ -55,9 +55,9 @@
 			 }
 		  
 		     f.append(field_name,format);
-		 }catch(e){
+		/* }catch(e){
 		     f.append(field_name,'missing');
-		 }
+		 }*/
 		   
 	   }
    sendform('newProduct.php',f);
@@ -324,16 +324,14 @@ function field_format(field_name,vv){
 		
 	}else if(field_name=='url'){
 		vv = pushAliExpress(vv);
-	}
-	/*
-	else if(field_name=='title'){
+	}else if(field_name=='title'){
 		if(vv=='descriptionModule'){
 			ffields = document.getElementsByClassName('ogTitle_'+ind);  
 			if(ffields.length>1){
 				vv = ffields[1].value;
 			}	
 		}		
-	}*/
+	}
 	
 	return vv;
 }
