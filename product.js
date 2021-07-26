@@ -92,8 +92,6 @@
 	   for(var a=0;a<fields.length;a++){
 		     f.append(fields[a].getElementsByTagName('input')[0].value,
 			      getName(fields[a].getElementsByTagName('input')[3].value.split(','),index).value);
-	  
-
 	  }   
 														       
    sendform('newProduct.php',f);
@@ -326,14 +324,16 @@ function field_format(field_name,vv){
 		
 	}else if(field_name=='url'){
 		vv = pushAliExpress(vv);
-	}else if(field_name=='title'){
+	}
+	/*
+	else if(field_name=='title'){
 		if(vv=='descriptionModule'){
 			ffields = document.getElementsByClassName('ogTitle_'+ind);  
 			if(ffields.length>1){
 				vv = ffields[1].value;
 			}	
 		}		
-	}
+	}*/
 	
 	return vv;
 }
