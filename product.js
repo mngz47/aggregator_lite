@@ -63,7 +63,7 @@
    sendform('newProduct.php',f);
 	   
 	    }else{ //  if duplicate is found skip product
-			e('log').innerHTML += '<br>duplicate('+url+')<br>';
+			e('log').innerHTML += '<br>duplicate('+res.responseText+')<br>';
 		  }
 	   };
 	   
