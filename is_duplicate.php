@@ -12,6 +12,8 @@ $result = $conn->query($sql);
        }else{
          echo '-1';
        }
+	     }else{
+		 echo '-1';    
 	     }
 }
 
