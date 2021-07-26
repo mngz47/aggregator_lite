@@ -64,11 +64,11 @@ break;
 
 
 
-var field_names = ['heading','price','description','comments','images','url'];
-var index = ['-1','-1','-1','-1','-1','-1'];
-var tags = ['<h1','<span','<div','<div','<ul',''];
-var indicators = ['product-title-text','product-price-value','detailmodule_html','customer-reviews','images-view-list',''];
-var size = [20,2,200,200,70,40];
+var field_names = ['heading','price','description','comments','images','url','companyId'];
+var index = ['-1','-1','-1','-1','-1','-1','-1'];
+var tags = ['<h1','<span','<div','<div','<ul','',''];
+var indicators = ['product-title-text','product-price-value','detailmodule_html','customer-reviews','images-view-list','',''];
+var size = [20,2,200,200,70,40,20];
 
 for(var a=0;a<field_names.length;a++){
 addPP(field_names[a],index[a],tags[a],indicators[a],size[a]);
