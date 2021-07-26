@@ -7,12 +7,12 @@ $conn = new mysqli('d6rii63wp64rsfb5.cbetxkdyhwsb.us-east-1.rds.amazonaws.com','
 $sql = 'SELECT id FROM product WHERE CONTAINS(refs,"'.$_POST['aff_link'].'")';
 $result = $conn->query($sql);
 	     if($result){
-		   if($row = $result->fetch_assoc()){
+       if(($row = $result->fetch_assoc()) && $row['id']){
          echo $row['id'];
        }else{
          echo '-1';
        }
-		   }
+	     }
 }
 
 ?>
