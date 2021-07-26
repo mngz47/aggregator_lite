@@ -528,7 +528,7 @@ var aliexpress_2 = ['title','formatedAmount','subject ','attrValue','imagePath',
 	//attr[aa].split(':')[0].substring(1,-1);
 	//attr[aa].includes(aliexpress[a])
 	
-	
+	if(attr[aa])
 	if(attr[aa].toLowerCase().includes(aliexpress[a].toLowerCase()) || attr[aa].toLowerCase().includes(aliexpress_2[a].toLowerCase())){
 			
 	//alert(attr[aa]);
