@@ -326,6 +326,13 @@ function field_format(field_name,vv){
 		
 	}else if(field_name=='url'){
 		vv = pushAliExpress(vv);
+	}else if(field_name=='title'){
+		if(vv=='descriptionModule'){
+			ffields = document.getElementsByClassName('ogTitle_'+ind);  
+			if(ffields.length>1){
+				vv = ffields[1].value;
+			}	
+		}		
 	}
 	
 	return vv;
