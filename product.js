@@ -43,7 +43,7 @@
 		   var ff = document.getElementsByClassName(aliexpress[a]+'_'+ind)[0];
 		   var field_name = fields[a].getElementsByTagName('input')[0].value;
 		   
-		// try{ 
+		try{ 
 			 var format;
 			 
 			 if(field_name=='title' && title){
@@ -55,9 +55,9 @@
 			 }
 		  
 		     f.append(field_name,format);
-		/* }catch(e){
+		 }catch(e){
 		     f.append(field_name,'missing');
-		 }*/
+		 }
 		   
 	   }
    sendform('newProduct.php',f);
