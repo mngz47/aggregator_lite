@@ -1,4 +1,4 @@
-.............  
+
    var values = [];
    
    function showProduct(){
