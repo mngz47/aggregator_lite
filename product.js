@@ -40,7 +40,7 @@
 	   for(var a=0;a<fields.length;a++){
 		   
 		   
-		   var ff = e(aliexpress[a]+'_'+ind);
+		   var ff = document.getElementsByClassName(aliexpress[a]+'_'+ind)[0];
 		   var field_name = fields[a].getElementsByTagName('input')[0].value;
 		   
 		// try{ 
@@ -51,7 +51,7 @@
 			 }else if(field_name=='description' && description){
 			    format = description; 
 			 }else{
-			    format = field_format(field_name,ff.value);	     
+			    format = field_format(field_name,ff);	     
 			 }
 		  
 		     f.append(field_name,format);
