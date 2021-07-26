@@ -22,7 +22,7 @@
 	   
    var f = new FormData();
 	    f.append('url',(url.includes('aliexpress')?pushAliExpress(url):url));
-			    f.append('productId',url.subtring(url.indexOf("item/")+5,url.indexOf(".htm")));
+			    f.append('productId',url.substring(url.indexOf("item/")+5,url.indexOf(".htm")));
 	    f.append('brand','auto');
 	f.append('date_added',getFormatedDate());   
      f.append('category',(e('category').value?e('category').value:'auto'));
