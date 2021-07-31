@@ -41,6 +41,7 @@
 		   
 		   
 		   var ff = document.getElementsByClassName(aliexpress[a]+'_'+ind)[0];
+		   ff = e(aliexpress[a]+'_'+ind).value;
 		   var field_name = fields[a].getElementsByTagName('input')[0].value;
 		   
 		try{ 
